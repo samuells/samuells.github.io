@@ -1,0 +1,134 @@
+html, body{
+    width:100%;
+    height:100%!Important;
+    margin: 0;
+    padding: 0;
+    background: #E6E2AF;
+    font-family: 'Chau Philomene One', sans-serif;
+}
+
+button{
+  cursor:pointer;
+}
+
+h1,p{
+	text-align: center;
+}
+
+#playground{
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #A7A37E;
+	padding:20px;
+	border-radius: 10px;
+}
+
+.card{
+	color: white;
+	font-size: 25px;
+	text-align: center;
+	display: inline-block;
+	width: 72px;
+	height: 72px;
+	border: 2px solid #04594A;
+	border-radius: 2px;
+	margin: 2px;
+	background: none transparent no-repeat center;
+	cursor:pointer;
+}
+
+.card:hover, .card:focus{
+	box-shadow: 2px 2px 2px rgba(80,80,80,0.6);
+}
+
+.selected-true{
+	background-color: #d8fff5;
+}
+.selected-false{
+	background-color:#03735e;
+}
+
+.selected-done{
+	background-color:#00A388;
+}
+
+.timer{
+	margin-top: 30px;
+	font-size: 20px;
+	text-align: center;
+}
+
+button{
+	font-size: 20px;
+	color: white;
+	font-family: 'Chau Philomene One', sans-serif;
+	margin: 10px auto 20px auto;
+	display: block;
+	background-color: #FC5B3F;
+	border: 2px solid #DA463D;
+	border-radius: 4px;
+	padding: 0.5rem 2rem 0.5rem 2rem;
+}
+
+button:hover, button:focus{
+	box-shadow: 2px 2px 2px rgba(80,80,80,0.6);
+}
+
+#settings{
+	width:189px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+select.styled-select{
+	font-family: 'Chau Philomene One', sans-serif;
+	color: white;
+	background-color: #068CB5;
+	width: 72px;
+	padding: 5px;
+	font-size: 18px;
+	line-height: 1;
+	border: 2px solid #068CB5;
+	border-radius: 1px;
+	height: 34px;
+}
+
+label{
+	font-size: 18px;
+}
+
+.text{
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-weight: 300;
+	color:#A7A37E;
+	width: 340px;
+	margin: 0 auto 0 auto;
+	padding: 5px 3px 5px 3px;
+}
+
+.text:hover, .text:hover a{
+	color:#484636;
+}
+
+a ,a:link, a:visited, a:active{
+	color:#A7A37E;
+	text-decoration: none;
+	border-bottom:1px dotted #A7A37E;
+}
+
+.text:hover a:hover{
+	background-color:#A7A37E;
+	color:#E6E2AF;
+	border:none;
+}
+
+.text strong{
+	font-family: 'Chau Philomene One', sans-serif;
+	color: #323025;
+	font-size: 17px;
+}
+
+.topborder{
+	border-top: 1px solid #d8d3a2;
+}

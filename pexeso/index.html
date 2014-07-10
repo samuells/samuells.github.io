@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+	<script src="scripts/PexesoController.js"></script>
+	<link href="styles/pexeso.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Chau+Philomene+One' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+</head>
+<body ng-controller='PexesoController'>
+	<h1>PEXESO</h1>
+	<div id="settings">
+		<label>Choose the size:</label>
+		<select ng-model="size" class="styled-select">
+			<option value="16">4x4</option>
+			<option value="36">6x6</option>
+			<option value="60">12x5</option>
+		</select>
+		<p>and PLAY the game.</p>
+	</div>
+	<div id="playground" style="width:{{edgeOfPlayground}}px">
+		<span ng-repeat='card in cards' class="card selected-{{card.selected}}" ng-click="card.selected !== 'done' ? clickOnCard($index) : null" ng-style="card.myStyle"></span>
+	</div>
+	<div class="timer">{{myStopwatch.data.min}}m {{myStopwatch.data.sec}}s {{myStopwatch.data.millis}}ms</div>
+	<button ng-click="resetGame()">RESET</button>
+	<div class="text"><strong>HOW TO PLAY</strong> simply find pairs of cards as fast as you can.</div>
+	<div class="text topborder"><strong>PEXESO</strong> also known as Memory, Pelmanism, Shinkei-suijaku or simply Pairs. Origin of the this game can be found in the japanese game Kai awase. <small>[source wiki]</small></div>
+	<div class="text topborder"><strong>CREATED</strong> by <a href="https://twitter.com/samuelsnopko">Samuel Snopko</a> just for fun using the <a href="https://angularjs.org/">AngularJS</a>. Feel free to rape my code.</div>
+	<div class="text topborder"><strong>THANK YOU</strong> <a href="https://dribbble.com/gimpo">Nick Frost</a>, <a href="https://dribbble.com/LoonyVoyager">Greg Lapin</a> and <a href="http://www.smashingmagazine.com/">Smashing Magazine</a>, for beautiful set of icons. If you liked them, you can download the set <a href="http://www.smashingmagazine.com/2013/11/29/freebie-smallicons-icon-set/">here</a>. It's FREE.</div>
+</body>
+</html>
