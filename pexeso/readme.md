@@ -4,6 +4,6 @@ Based on the old memory/concentration game know also as Memory, Pelmanism, Shink
 
 Made just for fun and learn something.
 
-Many thanks to [Nick Frost](https://dribbble.com/gimpo), [Greg Lapin](https://dribbble.com/LoonyVoyager), [Smashing Magazine] for the beautiful set of icons.
+Many thanks to [Nick Frost](https://dribbble.com/gimpo), [Greg Lapin](https://dribbble.com/LoonyVoyager), [Smashing Magazine](https://smashingmagazine.com) for the beautiful set of icons.
 
 Have a fun.
