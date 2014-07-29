@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html ng-app='samuellsPortfolio'>
+	<head>
+		<title>samuells</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- AngularJS scripts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+		<script src="scripts/sam.js"></script>
+
+		<!-- Styles -->
+		<link href='http://fonts.googleapis.com/css?family=Chau+Philomene+One' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister' rel='stylesheet' type='text/css'>
+		<link href='/css/samuells.css' rel="stylesheet" type="text/css" href="">
+
+		<!-- AngularJS directive templates -->
+		<script type="text/ng-template" id="job.html">
+			<div ng-repeat="thing in fakeDB.jobs">
+				<h3>{{thing.name[lang]}} <mark>/ {{thing.duration[lang]}}</mark></h3>
+				<div ng-hide="thing.employer===undefined"><strong>{{fakeDB.labels.employer[lang]}}:</strong> <a ng-href="{{thing.employerUrl}}" target="_blank">{{thing.employer}}</a></div>
+				<div><strong>{{fakeDB.labels.projects[lang]}}:</strong> <span ng-repeat="project in thing.projects">{{$first ? '' : ', '}}<a href="{{project.url}}" target="_blank">{{project.name}}</a></span></div>
+				<div><strong>{{fakeDB.labels.techs[lang]}}:</strong> {{thing.techs}}</div>
+				<div ng-show="thing.recommendation"><a ng-href="{{thing.recommendation}}" target="_blank">{{fakeDB.labels.recommendation[lang]}}</a></div>
+				<div ng-show="thing.show" class="tleft">{{thing.info[lang]}}</div>
+				<span class="clickable" ng-click="thing.show=!thing.show">{{thing.show===false ? fakeDB.labels.readme[lang] : fakeDB.labels.hideme[lang]}}</span>
+			</div>
+		</script>
+		<script type="text/ng-template" id="cercou.html">
+			<div ng-repeat="cercou in fakeDB.cercous">
+				<h3>{{cercou.name[lang]}} <mark>/ {{cercou.duration[lang]}}</mark></h3>
+				<div><strong>{{fakeDB.labels.institution[lang]}}:</strong> <a ng-href="{{cercou.institutionUrl}}">{{cercou.institution}}</a></div>
+				<div><strong>{{fakeDB.labels.skill[lang]}}:</strong> {{cercou.skill[lang]}}</div>
+				<div><a ng-href="{{cercou.authenticate}}" target="_blank">{{fakeDB.labels.authenticate[lang]}}</a></div>
+			</div>
+		</script>
+		<script type="text/ng-template" id="education.html">
+			<div ng-repeat="edu in fakeDB.educations">
+				<h3>{{edu.name[lang]}} <mark>/ {{edu.duration[lang]}}</mark></h3>
+				<div><strong>University:</strong> <a ng-href="{{edu.uniUrl}}" target="_blank">{{edu.uni[lang]}}</a></div>
+				<div><strong>Faculty:</strong> <a ng-href="{{edu.facultyUrl}}" target="_blank">{{edu.faculty[lang]}}</a></div>
+				<div><strong>Programme:</strong> {{edu.program[lang]}}</div>
+				<div><strong>Accreditation:</strong> <a ng-href="{{edu.accUrl}}" target="_blank">{{edu.acc}}</a></div>
+				<div><strong>Final grade:</strong> {{edu.fgrade}}</div>
+			</div>
+		</script>
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		    <![endif]-->
+	</head>
+	<body ng-controller="dataController">
+		<header>
+			<div class="alert">Work on site in progress</div>
+			<nav pinning ng-class="{pinned:pinned}">
+				<span class="socials">
+					<a href="https://twitter.com/samuelsnopko" target="_blank"><svg width="16" height="16" viewBox="0 0 16 16">
+						<path class="twitter" d="M16 3.038c-0.589 0.261-1.221 0.438-1.885 0.517 0.678-0.406 1.198-1.050 1.443-1.816-0.634 0.376-1.337 0.649-2.085 0.797-0.599-0.638-1.452-1.037-2.396-1.037-1.813 0-3.283 1.47-3.283 3.282 0 0.257 0.029 0.508 0.085 0.748-2.728-0.137-5.147-1.444-6.766-3.43-0.283 0.485-0.444 1.049-0.444 1.65 0 1.139 0.579 2.144 1.46 2.732-0.538-0.017-1.044-0.165-1.487-0.411-0 0.014-0 0.027-0 0.041 0 1.59 1.132 2.917 2.633 3.219-0.275 0.075-0.565 0.115-0.865 0.115-0.212 0-0.417-0.021-0.618-0.059 0.418 1.304 1.63 2.253 3.066 2.28-1.123 0.88-2.539 1.405-4.077 1.405-0.265 0-0.526-0.016-0.783-0.046 1.453 0.931 3.178 1.475 5.032 1.475 6.038 0 9.34-5.002 9.34-9.34 0-0.142-0.003-0.284-0.010-0.425 0.642-0.463 1.198-1.041 1.638-1.699z"></path>
+					</svg></a>
+					<a href="https://github.com/samuells" target="_blank"><svg width="16" height="16" viewBox="0 0 16 16">
+						<path class="github" d="M8 0c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zM12.751 12.751c-0.617 0.617-1.336 1.102-2.136 1.44-0.203 0.086-0.41 0.161-0.619 0.226v-1.199c0-0.63-0.216-1.094-0.648-1.391 0.271-0.026 0.52-0.063 0.746-0.109s0.466-0.115 0.719-0.203 0.479-0.194 0.68-0.316 0.393-0.281 0.578-0.477 0.34-0.417 0.465-0.664 0.224-0.544 0.297-0.891 0.109-0.728 0.109-1.145c0-0.807-0.263-1.495-0.789-2.063 0.24-0.625 0.214-1.305-0.078-2.039l-0.195-0.023c-0.135-0.016-0.379 0.042-0.73 0.172s-0.746 0.344-1.184 0.641c-0.62-0.172-1.263-0.258-1.93-0.258-0.672 0-1.313 0.086-1.922 0.258-0.276-0.188-0.538-0.342-0.785-0.465s-0.445-0.206-0.594-0.25-0.286-0.072-0.414-0.082-0.21-0.013-0.246-0.008-0.063 0.010-0.078 0.016c-0.292 0.74-0.318 1.419-0.078 2.039-0.526 0.568-0.789 1.255-0.789 2.063 0 0.417 0.036 0.798 0.109 1.145s0.172 0.643 0.297 0.891 0.28 0.469 0.465 0.664 0.378 0.354 0.578 0.477 0.427 0.228 0.68 0.316 0.492 0.156 0.719 0.203 0.475 0.083 0.746 0.109c-0.427 0.292-0.641 0.755-0.641 1.391v1.222c-0.236-0.070-0.468-0.153-0.697-0.25-0.8-0.338-1.519-0.823-2.136-1.44s-1.102-1.336-1.44-2.136c-0.35-0.827-0.527-1.707-0.527-2.615s0.177-1.787 0.527-2.615c0.338-0.8 0.823-1.519 1.44-2.136s1.336-1.102 2.136-1.44c0.827-0.35 1.707-0.527 2.615-0.527s1.787 0.177 2.615 0.527c0.8 0.338 1.519 0.823 2.136 1.44s1.102 1.336 1.44 2.136c0.35 0.827 0.527 1.707 0.527 2.615s-0.177 1.787-0.527 2.615c-0.338 0.8-0.823 1.519-1.44 2.136z"></path>
+					</svg></a>
+					<a href="skype:samuell.s?call"><svg width="16" height="16" viewBox="0 0 16 16">
+						<path class="skype" d="M14.937 9.63c0.106-0.499 0.162-1.018 0.162-1.55 0-3.989-3.143-7.223-7.021-7.223-0.409 0-0.81 0.037-1.2 0.106-0.629-0.406-1.37-0.642-2.167-0.642-2.248 0-4.071 1.876-4.071 4.19 0 0.773 0.205 1.497 0.56 2.118-0.093 0.469-0.142 0.954-0.142 1.452 0 3.989 3.144 7.223 7.021 7.223 0.439 0 0.87-0.042 1.286-0.121 0.573 0.317 1.228 0.497 1.924 0.497 2.25 0 4.072-1.875 4.072-4.189 0-0.668-0.153-1.3-0.423-1.86zM11.679 11.533c-0.325 0.473-0.805 0.848-1.426 1.114-0.616 0.263-1.353 0.397-2.194 0.397-1.009 0-1.854-0.182-2.514-0.543-0.472-0.262-0.861-0.617-1.156-1.054-0.298-0.443-0.45-0.882-0.45-1.306 0-0.265 0.098-0.494 0.293-0.682 0.193-0.186 0.439-0.281 0.733-0.281 0.241 0 0.45 0.074 0.618 0.221 0.162 0.142 0.3 0.35 0.411 0.618 0.125 0.294 0.26 0.541 0.403 0.736 0.138 0.187 0.336 0.346 0.589 0.469 0.254 0.123 0.598 0.186 1.020 0.186 0.58 0 1.056-0.127 1.414-0.379 0.35-0.246 0.52-0.541 0.52-0.902 0-0.285-0.089-0.51-0.271-0.685-0.191-0.183-0.444-0.326-0.75-0.425-0.319-0.102-0.753-0.213-1.288-0.328-0.729-0.161-1.348-0.351-1.84-0.566-0.502-0.219-0.909-0.525-1.206-0.907-0.302-0.387-0.454-0.875-0.454-1.448 0-0.546 0.16-1.038 0.477-1.462 0.314-0.421 0.772-0.749 1.362-0.974 0.583-0.222 1.277-0.334 2.061-0.334 0.627 0 1.178 0.075 1.638 0.222 0.462 0.149 0.853 0.349 1.159 0.595 0.309 0.249 0.538 0.514 0.683 0.789 0.146 0.279 0.219 0.556 0.219 0.824 0 0.258-0.097 0.493-0.288 0.698s-0.435 0.31-0.721 0.31c-0.259 0-0.463-0.066-0.605-0.194-0.131-0.119-0.268-0.306-0.418-0.574-0.175-0.343-0.387-0.613-0.63-0.802-0.237-0.185-0.63-0.279-1.173-0.279-0.503 0-0.913 0.104-1.217 0.31-0.294 0.198-0.435 0.425-0.435 0.693 0 0.165 0.046 0.302 0.14 0.42 0.1 0.126 0.24 0.236 0.418 0.327 0.184 0.095 0.374 0.171 0.565 0.226 0.195 0.055 0.522 0.138 0.972 0.245 0.568 0.126 1.090 0.266 1.551 0.418 0.468 0.154 0.872 0.344 1.202 0.564 0.336 0.226 0.602 0.515 0.791 0.86 0.189 0.347 0.285 0.775 0.285 1.272 0.001 0.597-0.164 1.138-0.49 1.614z"></path>
+					</svg></a>
+					<a href="https://www.linkedin.com/in/samuelsnopko" target="_blank"><svg width="16" height="16" viewBox="0 0 16 16">
+						<path class="linkedin" d="M4.061 2.44c0 0.85-0.628 1.539-1.661 1.539-0.972 0-1.6-0.689-1.6-1.539 0-0.87 0.649-1.539 1.641-1.539s1.6 0.669 1.62 1.539zM0.882 15.099v-9.904h3.078v9.904h-3.078zM5.802 8.354c0-1.235-0.041-2.268-0.082-3.159h2.674l0.142 1.378h0.061c0.405-0.649 1.398-1.6 3.058-1.6 2.025 0 3.544 1.357 3.544 4.274v5.854h-3.078v-5.489c0-1.276-0.446-2.147-1.56-2.147-0.85 0-1.356 0.587-1.579 1.154-0.082 0.202-0.102 0.486-0.102 0.77v5.712h-3.078v-6.746z"></path>
+					</svg></a>
+					<a href="https://www.xing.com/profile/Samuel_Snopko" target="_blank"><svg width="16" height="16" viewBox="0 0 16 16">
+						<path class="xing" d="M0.045 10.286q-0.089-0.152 0-0.321l2.259-4q0.009 0 0-0.009l-1.438-2.491q-0.107-0.196-0.009-0.33 0.080-0.134 0.286-0.134h2.134q0.357 0 0.589 0.402l1.464 2.554q-0.089 0.161-2.295 4.071-0.241 0.411-0.58 0.411h-2.134q-0.188 0-0.277-0.152zM4.786 8.902q0.161-0.286 4.741-8.411 0.223-0.402 0.571-0.402h2.152q0.196 0 0.277 0.134 0.098 0.143 0 0.33l-4.714 8.339v0.009l3 5.491q0.098 0.179 0.009 0.33-0.089 0.134-0.286 0.134h-2.134q-0.375 0-0.589-0.402z"></path>
+					</svg></a>
+					<a href="#contact"><svg width="16" height="16" viewBox="0 0 16 16">
+						<path class="plane" d="M15.771 0.080c-0.083-0.053-0.178-0.080-0.271-0.080-0.097 0-0.194 0.028-0.277 0.084l-15 10c-0.154 0.102-0.239 0.283-0.22 0.468s0.139 0.344 0.311 0.412l3.912 1.566 1.84 3.219c0.088 0.155 0.252 0.25 0.428 0.252 0.002 0 0.003 0 0.005 0 0.176 0 0.338-0.093 0.428-0.243l1.038-1.732 4.848 1.938c0.059 0.024 0.122 0.036 0.185 0.036 0.085 0 0.169-0.021 0.245-0.065 0.132-0.074 0.223-0.204 0.248-0.354l2.5-15c0.033-0.197-0.055-0.394-0.222-0.502zM1.568 10.389l11.588-7.726-8.425 9.018c-0.045-0.027-0.084-0.062-0.133-0.081l-3.030-1.212zM5.095 12.033c-0.001-0.002-0.003-0.003-0.003-0.005l9.471-10.137-8.075 12.581-1.393-2.438zM12.608 14.805l-4.271-1.708c-0.101-0.040-0.207-0.053-0.312-0.059l6.576-10.194-1.994 11.961z"></path>
+					</svg></a>					
+				</span>
+				<span class="name" ng-class="{hideName:!pinned}">Samuel Snopko {{height}} {{page}}</span>
+				<span class="menu"><a href="#contact">CV</a> blog <mark ng-click="lang='sk'" ng-class="{sk:lang==='sk'}">sk</mark> <mark ng-click="lang='de'" ng-class="{de:lang==='de'}">de</mark> <mark ng-click="lang='en'" ng-class="{en:lang==='en'}">en</mark></span>
+			</nav>
+		</header>
+		<main >
+			<div class="portrait"></div>
+			<h1 sizing style="font-size:{{size}}px">Samuel Snopko {{height}}</h1>
+			<div>exAnalyst / WEB DEVELOPER</div>
+			<div>Hi guys! I've created this website for you to present me. I really hope you enjoy it and maybe contact me. btw if you want to see the super-mega-responsive version click here. See you soon and feel free to rape my code.</div>
+			<section id="projects">
+				<h2>{{fakeDB.labels.recpro[lang]}}</h2>
+				<a href="http://samuells.github.io/pexeso" target="_blank">
+					<figure>
+						<img src="img/pexeso.png" alt="pexeso created in AngularJS">
+						<figcaption><span>AngularJS Pexeso</span></figcaption>
+					</figure>
+				</a>
+				<a href="#">
+				<figure>
+					<img src="img/iteas.png" alt="developed company website">
+					<figcaption><span>Iteas website</span></figcaption>
+				</figure>
+				</a>
+			</section>
+			<section id="tskills">
+				<h2>{{fakeDB.labels.techskills[lang]}}</h2>
+				<span class="column">
+					<span class="skill">
+						<span class="name">JavaScript</span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><span class="bar"></span>
+					</span><br>
+					<span class="skill">
+						<span class="name">AngularJS</span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><span class="bar"></span><span class="bar"></span>
+					</span><br>
+					<span class="skill">
+						<span class="name">HTML5</span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><span class="bar"></span>
+					</span><br>			
+					<span class="skill">
+						<span class="name">CSS3</span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><span class="bar"></span>
+					</span><br>
+					<span class="skill">
+						<span class="name">Sass</span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><span class="bar"></span><span class="bar"></span>
+					</span>
+					<span class="skill">
+						<span class="name">jQuery</span><span class="bar full"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+					</span>
+				</span>
+				<span class="column">
+					<span class="skill left">
+						<span class="name">Java</span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><span class="bar"></span><span class="bar"></span>
+					</span><br>
+					<span class="skill left">
+						<span class="name">MongoDB</span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><span class="bar"></span><span class="bar"></span>
+					</span><br>
+					<span class="skill left">
+						<span class="name">Groovy</span><span class="bar full"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+					</span><br>
+					<span class="skill left">
+						<span class="name">UML 2.0</span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span>
+					</span><br>
+					<span class="skill left">
+						<span class="name">BPMN</span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span>
+					</span>
+					<span class="skill left">
+						<span class="name">GIT</span><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><span class="bar"></span><span class="bar"></span>
+					</span>
+				</span>
+			</section>
+			<section id="wexp">
+				<h2>{{fakeDB.labels.workexp[lang]}}</h2>
+				<data-sam-job></data-sam-job>
+			</section>
+			<section id="languages" ng-class="{charfix:lang==='sk'}">
+				<h2>{{fakeDB.labels.lang[lang]}}</h2>
+				<figure>
+					<svg data-sam-filling lang='circles.sk' width="74" height="74">
+						<filter id="blurMe">
+						    <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
+						</filter>
+						<text x="21" y="48">C2</text>
+						<path class="circle_line2" d="m37,5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z" filter="url(#blurMe)"/>
+				        <path class="circle_line" ng-class="{sk:circles.sk}" d="m37,5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"/>
+				    </svg>
+				    <figcaption>{{fakeDB.labels.lang.slovak[lang]}}</figcaption>
+				</figure>
+				<figure>
+					<svg data-sam-filling lang='circles.de' version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" width="74" height="74">
+						<filter id="blurMe">
+						    <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
+						</filter>
+						<text x="21" y="48">C1</text>
+						<path class="circle_line2" d="m37,5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z" filter="url(#blurMe)"/>
+				        <path class="circle_line" ng-class="{de:circles.de}" d="m37,5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"/>
+				    </svg>
+				    <figcaption>{{fakeDB.labels.lang.german[lang]}}</figcaption>
+				</figure>
+				<figure>
+					<svg data-sam-filling lang='circles.en' version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" width="74" height="74">
+						<filter id="blurMe">
+						    <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
+						</filter>
+						<text x="21" y="48">C1</text>
+						<path class="circle_line2" d="m37,5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z" filter="url(#blurMe)"/>
+				        <path class="circle_line" ng-class="{en:circles.en}" d="m37,5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"/>
+				    </svg>
+				    <figcaption>{{fakeDB.labels.lang.english[lang]}}</figcaption>
+				</figure>
+				<figure>
+					<svg data-sam-filling lang='circles.cz' version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" width="74" height="74">
+						<filter id="blurMe">
+						    <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
+						</filter>
+						<text x="21" y="48">C1</text>
+						<path class="circle_line2" d="m37,5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z" filter="url(#blurMe)"/>
+				        <path class="circle_line" ng-class="{cz:circles.cz}" d="m37,5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"/>
+				    </svg>
+				    <figcaption>{{fakeDB.labels.lang.czech[lang]}}</figcaption>
+				</figure>
+			</section>
+			<section id="education">
+				<h2>{{fakeDB.labels.education[lang]}}</h2>
+				<data-sam-edu></data-sam-edu>
+			</section>
+			<section id="cercou">
+				<h2>{{fakeDB.labels.cercou[lang]}}</h2>
+				<data-sam-cercou></data-sam-cercou>
+			</section>
+			<section id="contact">
+				<h2>{{fakeDB.labels.contact[lang]}}</h2>
+				<div><strong>Skype:</strong> <a href="skype:samuell.s?call">samuell.s</a></div>
+				<div><strong>Twitter:</strong> <a href="https://twitter.com/samuelsnopko" target="_blank">samuelsnopko</a></div>
+				<div><strong>Email:</strong> <a href="mailto:samuel.snopko@gmail.com">samuel.snopko@gmail.com</a></div>
+				<div><strong>Resume:</strong> <a href="files/samuel_snopko_cv_en.pdf" target="_blank">english</a> <a href="files/samuel_snopko_cv_de.pdf" target="_blank">deutsch</a> <a href="files/samuel_snopko_cv.pdf" target="_blank">creative</a></div>
+			</section>
+		</main>
+		<footer>
+			<div>Created & Designed by Samuel Snopko</div>
+		</footer>
+	</body>
+</html>
