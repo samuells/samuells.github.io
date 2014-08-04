@@ -383,6 +383,18 @@ main{
 	    stroke-linecap:round;
 	    stroke-dashoffset:300%;
 	    @include transition(stroke-dashoffset 3s);
+	    @media only screen and (min-device-width : 320px) and (max-device-width : 568px)
+		{
+			& fill-fix-de{
+				stroke-dashoffset:120%;
+			}
+			& fill-fix-en, fill-fix-cz{
+				stroke-dashoffset:120%;
+			}
+			& fill-fix-sk{
+				stroke-dashoffset:0%;
+			}
+		}
 	    &.de{
 	    	stroke-dashoffset:120%;
 	    }
@@ -395,6 +407,8 @@ main{
 	    &.cz{
 	    	stroke-dashoffset:60%;	
 	    }
+
+
 	}
 	.circle_line2{
 	    fill:none;
