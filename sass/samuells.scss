@@ -329,6 +329,11 @@ main{
 			&.tleft{
 				width:50%;
 				text-align: left;
+				@media only screen and (min-device-width : 320px) and (max-device-width : 568px)
+				{
+					width:90%;
+					text-align: center;
+				}		
 			}
 		}
 	}

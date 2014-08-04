@@ -374,22 +374,29 @@ main {
   width: 50%;
   text-align: left;
 }
-/* line 335, ../sass/samuells.scss */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  /* line 329, ../sass/samuells.scss */
+  #wexp div div.tleft, #education div div.tleft, #cercou div div.tleft, #contact div div.tleft {
+    width: 90%;
+    text-align: center;
+  }
+}
+/* line 340, ../sass/samuells.scss */
 #wexp > div, #education > div, #cercou > div, #contact > div {
   padding-bottom: 0.2em;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  /* line 335, ../sass/samuells.scss */
+  /* line 340, ../sass/samuells.scss */
   #wexp > div, #education > div, #cercou > div, #contact > div {
     padding: 0 1em;
   }
 }
-/* line 342, ../sass/samuells.scss */
+/* line 347, ../sass/samuells.scss */
 #wexp h3, #education h3, #cercou h3, #contact h3 {
   color: #5c5c5c;
   margin: 0.8em 0 0.5em 0;
 }
-/* line 345, ../sass/samuells.scss */
+/* line 350, ../sass/samuells.scss */
 #wexp h3 mark, #education h3 mark, #cercou h3 mark, #contact h3 mark {
   font: 300 16px "PT Sans Narrow", sans-serif;
   font-size: 0.9em;
@@ -397,19 +404,19 @@ main {
   color: #676767;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  /* line 345, ../sass/samuells.scss */
+  /* line 350, ../sass/samuells.scss */
   #wexp h3 mark, #education h3 mark, #cercou h3 mark, #contact h3 mark {
     display: block;
   }
 }
 
-/* line 359, ../sass/samuells.scss */
+/* line 364, ../sass/samuells.scss */
 #languages figure {
   display: inline-block;
   max-width: 100px;
   margin: 0 20px;
 }
-/* line 364, ../sass/samuells.scss */
+/* line 369, ../sass/samuells.scss */
 #languages text {
   font: 300 16px "Chau Philomene One", sans-serif;
   font-size: 30px;
@@ -419,7 +426,7 @@ main {
   fill-opacity: 1;
   stroke: none;
 }
-/* line 373, ../sass/samuells.scss */
+/* line 378, ../sass/samuells.scss */
 #languages .circle_line {
   fill: none;
   stroke: #43594a;
@@ -429,23 +436,23 @@ main {
   stroke-dashoffset: 300%;
   transition: stroke-dashoffset 3s;
 }
-/* line 381, ../sass/samuells.scss */
+/* line 386, ../sass/samuells.scss */
 #languages .circle_line.de {
   stroke-dashoffset: 120%;
 }
-/* line 384, ../sass/samuells.scss */
+/* line 389, ../sass/samuells.scss */
 #languages .circle_line.en {
   stroke-dashoffset: 60%;
 }
-/* line 387, ../sass/samuells.scss */
+/* line 392, ../sass/samuells.scss */
 #languages .circle_line.sk {
   stroke-dashoffset: 0%;
 }
-/* line 390, ../sass/samuells.scss */
+/* line 395, ../sass/samuells.scss */
 #languages .circle_line.cz {
   stroke-dashoffset: 60%;
 }
-/* line 394, ../sass/samuells.scss */
+/* line 399, ../sass/samuells.scss */
 #languages .circle_line2 {
   fill: none;
   stroke-opacity: 0.5;
@@ -455,26 +462,26 @@ main {
   stroke-dasharray: 300%;
   stroke-linecap: round;
 }
-/* line 404, ../sass/samuells.scss */
+/* line 409, ../sass/samuells.scss */
 #languages.charfix figcaption {
   font: 300 16px "PT Sans Narrow", sans-serif;
   font-weight: 700;
 }
 
-/* line 411, ../sass/samuells.scss */
+/* line 416, ../sass/samuells.scss */
 #contact h2 {
   margin-bottom: 0.4em;
 }
-/* line 414, ../sass/samuells.scss */
+/* line 419, ../sass/samuells.scss */
 #contact div {
   font: 300 16px "PT Sans Narrow", sans-serif;
 }
-/* line 417, ../sass/samuells.scss */
+/* line 422, ../sass/samuells.scss */
 #contact strong {
   font: 300 16px "Chau Philomene One", sans-serif;
 }
 
-/* line 423, ../sass/samuells.scss */
+/* line 428, ../sass/samuells.scss */
 footer div {
   height: 2em;
   width: 100%;
