@@ -1,102 +1,132 @@
-/* line 12, ../sass/samuells.scss */
+/* line 14, ../sass/samuells.scss */
 .alert {
-  color: red; }
+  color: red;
+}
 
-/* line 16, ../sass/samuells.scss */
+/* line 18, ../sass/samuells.scss */
 html, body {
   font: 300 16px "Chau Philomene One", sans-serif;
   text-align: center;
   color: #676767;
-  margin: 0; }
+  margin: 0;
+}
 
-/* line 25, ../sass/samuells.scss */
+/* line 27, ../sass/samuells.scss */
 h1, h2 {
   color: #43594a;
-  font-weight: 300; }
+  font-weight: 300;
+}
 
-/* line 30, ../sass/samuells.scss */
+/* line 32, ../sass/samuells.scss */
 h2 {
-  border-top: 2px dotted rgba(67, 89, 74, 0.2); }
+  border-top: 2px dotted rgba(67, 89, 74, 0.2);
+}
 
-/* line 34, ../sass/samuells.scss */
+/* line 36, ../sass/samuells.scss */
 .clickable {
-  font: 300 16px "PT Sans Narrow", sans-serif; }
+  font: 300 16px "PT Sans Narrow", sans-serif;
+}
 
-/* line 38, ../sass/samuells.scss */
+/* line 40, ../sass/samuells.scss */
 a, .clickable {
   cursor: pointer;
   margin: 0;
   text-decoration: none;
   color: #676767;
-  border-bottom: 1px dotted #676767; }
-  /* line 44, ../sass/samuells.scss */
-  a:hover, a:focus, .clickable:hover, .clickable:focus {
-    color: white;
-    background-color: #676767; }
-  /* line 48, ../sass/samuells.scss */
-  #projects a, #projects .clickable {
-    border-bottom: none; }
-    /* line 50, ../sass/samuells.scss */
-    #projects a figcaption span, #projects .clickable figcaption span {
-      color: #676767;
-      border-bottom: 1px dotted #676767; }
-    /* line 54, ../sass/samuells.scss */
-    #projects a:hover, #projects #projects a:focus, #projects .clickable:hover, #projects #projects .clickable:focus {
-      background-color: transparent; }
-      /* line 56, ../sass/samuells.scss */
-      #projects a:hover figcaption span, #projects #projects a:focus figcaption span, #projects .clickable:hover figcaption span, #projects #projects .clickable:focus figcaption span {
-        color: white;
-        background-color: #676767; }
-  /* line 62, ../sass/samuells.scss */
-  #wexp > div:hover a, #education > div:hover a, #cercou > div:hover a, #contact > div:hover a, #wexp > div:hover .clickable, #education > div:hover .clickable, #cercou > div:hover .clickable, #contact > div:hover .clickable {
-    color: #eafaf8;
-    border-color: #eafaf8; }
-  /* line 67, ../sass/samuells.scss */
-  .socials a, .socials .clickable {
-    border-bottom: none; }
-    /* line 69, ../sass/samuells.scss */
-    .socials a:hover, .socials a:focus, .socials .clickable:hover, .socials .clickable:focus {
-      background-color: transparent; }
-      /* line 72, ../sass/samuells.scss */
-      .socials a:hover path.twitter, .socials a:focus path.twitter, .socials .clickable:hover path.twitter, .socials .clickable:focus path.twitter {
-        fill: #55ACEE; }
-      /* line 75, ../sass/samuells.scss */
-      .socials a:hover path.github, .socials a:focus path.github, .socials .clickable:hover path.github, .socials .clickable:focus path.github {
-        fill: #000000; }
-      /* line 78, ../sass/samuells.scss */
-      .socials a:hover path.linkedin, .socials a:focus path.linkedin, .socials .clickable:hover path.linkedin, .socials .clickable:focus path.linkedin {
-        fill: #0976b4; }
-      /* line 81, ../sass/samuells.scss */
-      .socials a:hover path.skype, .socials a:focus path.skype, .socials .clickable:hover path.skype, .socials .clickable:focus path.skype {
-        fill: #00aff0; }
-      /* line 84, ../sass/samuells.scss */
-      .socials a:hover path.xing, .socials a:focus path.xing, .socials .clickable:hover path.xing, .socials .clickable:focus path.xing {
-        fill: #026466; }
-      /* line 87, ../sass/samuells.scss */
-      .socials a:hover path.plane, .socials a:focus path.plane, .socials .clickable:hover path.plane, .socials .clickable:focus path.plane {
-        fill: black; }
-  /* line 94, ../sass/samuells.scss */
-  .menu a, .menu .clickable {
-    border-bottom: none;
-    margin: 0 2px; }
-    /* line 97, ../sass/samuells.scss */
-    .menu a:hover, .menu a:focus, .menu .clickable:hover, .menu .clickable:focus {
-      background-color: transparent;
-      color: black; }
+  border-bottom: 1px dotted #676767;
+}
+/* line 46, ../sass/samuells.scss */
+a:hover, a:focus, .clickable:hover, .clickable:focus {
+  color: white;
+  background-color: #676767;
+}
+/* line 50, ../sass/samuells.scss */
+#projects a, #projects .clickable {
+  border-bottom: none;
+}
+/* line 52, ../sass/samuells.scss */
+#projects a figcaption span, #projects .clickable figcaption span {
+  color: #676767;
+  border-bottom: 1px dotted #676767;
+}
+/* line 56, ../sass/samuells.scss */
+#projects a:hover, #projects #projects a:focus, #projects .clickable:hover, #projects #projects .clickable:focus {
+  background-color: transparent;
+}
+/* line 58, ../sass/samuells.scss */
+#projects a:hover figcaption span, #projects #projects a:focus figcaption span, #projects .clickable:hover figcaption span, #projects #projects .clickable:focus figcaption span {
+  color: white;
+  background-color: #676767;
+}
+/* line 64, ../sass/samuells.scss */
+#wexp > div:hover a, #education > div:hover a, #cercou > div:hover a, #contact > div:hover a, #wexp > div:hover .clickable, #education > div:hover .clickable, #cercou > div:hover .clickable, #contact > div:hover .clickable {
+  color: #eafaf8;
+  border-color: #eafaf8;
+}
+/* line 69, ../sass/samuells.scss */
+.socials a, .socials .clickable {
+  border-bottom: none;
+}
+/* line 71, ../sass/samuells.scss */
+.socials a:hover, .socials a:focus, .socials .clickable:hover, .socials .clickable:focus {
+  background-color: transparent;
+}
+/* line 74, ../sass/samuells.scss */
+.socials a:hover path.twitter, .socials a:focus path.twitter, .socials .clickable:hover path.twitter, .socials .clickable:focus path.twitter {
+  fill: #55ACEE;
+}
+/* line 77, ../sass/samuells.scss */
+.socials a:hover path.github, .socials a:focus path.github, .socials .clickable:hover path.github, .socials .clickable:focus path.github {
+  fill: #000000;
+}
+/* line 80, ../sass/samuells.scss */
+.socials a:hover path.linkedin, .socials a:focus path.linkedin, .socials .clickable:hover path.linkedin, .socials .clickable:focus path.linkedin {
+  fill: #0976b4;
+}
+/* line 83, ../sass/samuells.scss */
+.socials a:hover path.skype, .socials a:focus path.skype, .socials .clickable:hover path.skype, .socials .clickable:focus path.skype {
+  fill: #00aff0;
+}
+/* line 86, ../sass/samuells.scss */
+.socials a:hover path.xing, .socials a:focus path.xing, .socials .clickable:hover path.xing, .socials .clickable:focus path.xing {
+  fill: #026466;
+}
+/* line 89, ../sass/samuells.scss */
+.socials a:hover path.plane, .socials a:focus path.plane, .socials .clickable:hover path.plane, .socials .clickable:focus path.plane {
+  fill: black;
+}
+/* line 96, ../sass/samuells.scss */
+.menu a, .menu .clickable {
+  border-bottom: none;
+  margin: 0 2px;
+}
+/* line 99, ../sass/samuells.scss */
+.menu a:hover, .menu a:focus, .menu .clickable:hover, .menu .clickable:focus {
+  background-color: transparent;
+  color: black;
+}
 
-/* line 105, ../sass/samuells.scss */
+/* line 107, ../sass/samuells.scss */
 .ng-hide {
   display: block !important;
   position: absolute;
   top: -9999px;
-  left: -9999px; }
+  left: -9999px;
+}
 
-/* line 112, ../sass/samuells.scss */
+/* line 114, ../sass/samuells.scss */
 div {
   max-width: 50%;
-  margin: 0 auto 0 auto; }
+  margin: 0 auto 0 auto;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  /* line 114, ../sass/samuells.scss */
+  div {
+    max-width: 80%;
+  }
+}
 
-/* line 117, ../sass/samuells.scss */
+/* line 123, ../sass/samuells.scss */
 .portrait {
   background-image: url("../img/profile_pic.png");
   border: 2px solid #43594a;
@@ -106,25 +136,29 @@ div {
   background-position: 50% 20%;
   width: 100px;
   height: 100px;
-  margin: 0 auto 0 auto; }
+  margin: 0 auto 0 auto;
+}
 
-/* line 129, ../sass/samuells.scss */
+/* line 135, ../sass/samuells.scss */
 h1 {
   font-size: 2em;
   margin-top: .2em;
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+}
 
-/* line 135, ../sass/samuells.scss */
+/* line 141, ../sass/samuells.scss */
 .quote {
   font-size: 10em;
-  font-family: "Love Ya Like A Sister", cursive; }
+  font-family: "Love Ya Like A Sister", cursive;
+}
 
-/* line 140, ../sass/samuells.scss */
+/* line 146, ../sass/samuells.scss */
 .delimeter {
   margin-top: 0.5em;
-  margin-bottom: 0.5em; }
+  margin-bottom: 0.5em;
+}
 
-/* line 145, ../sass/samuells.scss */
+/* line 151, ../sass/samuells.scss */
 .circle {
   display: inline-block;
   margin: 0 0.1em 0 0.1em;
@@ -133,9 +167,10 @@ h1 {
   border: 2px solid #43594a;
   border-radius: 50%;
   background-color: gray;
-  margin-top: 0.3em; }
+  margin-top: 0.3em;
+}
 
-/* line 156, ../sass/samuells.scss */
+/* line 162, ../sass/samuells.scss */
 nav {
   position: fixed;
   top: 0px;
@@ -146,158 +181,235 @@ nav {
   padding-top: 5px;
   padding-bottom: 5px;
   background-color: transparent;
-  transition: background-color 0.5s, box-shadow 0.5s; }
-  /* line 167, ../sass/samuells.scss */
-  nav.pinned {
-    background-color: #fafafa;
-    box-shadow: 2px 0 4px black; }
-  /* line 171, ../sass/samuells.scss */
-  nav span {
-    display: inline-block;
-    width: 26%;
-    text-align: center; }
-    /* line 175, ../sass/samuells.scss */
-    nav span.name {
-      color: #43594a; }
-    /* line 178, ../sass/samuells.scss */
-    nav span.hideName {
-      color: transparent; }
-    /* line 181, ../sass/samuells.scss */
-    nav span.socials {
-      text-align: left; }
-      /* line 183, ../sass/samuells.scss */
-      nav span.socials svg {
-        margin: 0 2px; }
-      /* line 186, ../sass/samuells.scss */
-      nav span.socials path {
-        fill: #676767; }
-    /* line 190, ../sass/samuells.scss */
-    nav span.menu {
-      text-align: right; }
-      /* line 192, ../sass/samuells.scss */
-      nav span.menu mark {
-        background-color: transparent;
-        color: #676767;
-        cursor: pointer; }
-        /* line 196, ../sass/samuells.scss */
-        nav span.menu mark.sk {
-          color: #00286C; }
-        /* line 199, ../sass/samuells.scss */
-        nav span.menu mark.de {
-          color: #D52B1E; }
-        /* line 202, ../sass/samuells.scss */
-        nav span.menu mark.en {
-          color: #002664; }
-        /* line 205, ../sass/samuells.scss */
-        nav span.menu mark:hover, nav span.menu mark:focus {
-          color: black; }
+  -moz-transition: background-color 0.5s, box-shadow 0.5s;
+  -o-transition: background-color 0.5s, box-shadow 0.5s;
+  -webkit-transition: background-color 0.5s, box-shadow 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s;
+}
+@media only screen and (max-device-width: 700px) {
+  /* line 162, ../sass/samuells.scss */
+  nav {
+    width: 100%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+}
+/* line 179, ../sass/samuells.scss */
+nav.pinned {
+  background-color: #fafafa;
+  box-shadow: 2px 0 4px black;
+}
+/* line 183, ../sass/samuells.scss */
+nav span {
+  display: inline-block;
+  width: 26%;
+  text-align: center;
+}
+/* line 187, ../sass/samuells.scss */
+nav span.name {
+  color: #43594a;
+}
+/* line 190, ../sass/samuells.scss */
+nav span.hideName {
+  color: transparent;
+}
+/* line 193, ../sass/samuells.scss */
+nav span.socials {
+  text-align: left;
+}
+/* line 195, ../sass/samuells.scss */
+nav span.socials svg {
+  margin: 0 2px;
+}
+/* line 198, ../sass/samuells.scss */
+nav span.socials path {
+  fill: #676767;
+}
+/* line 202, ../sass/samuells.scss */
+nav span.menu {
+  text-align: right;
+}
+/* line 204, ../sass/samuells.scss */
+nav span.menu mark {
+  background-color: transparent;
+  color: #676767;
+  cursor: pointer;
+}
+/* line 208, ../sass/samuells.scss */
+nav span.menu mark.sk {
+  color: #00286C;
+}
+/* line 211, ../sass/samuells.scss */
+nav span.menu mark.de {
+  color: #D52B1E;
+}
+/* line 214, ../sass/samuells.scss */
+nav span.menu mark.en {
+  color: #002664;
+}
+/* line 217, ../sass/samuells.scss */
+nav span.menu mark:hover, nav span.menu mark:focus {
+  color: black;
+}
 
-/* line 213, ../sass/samuells.scss */
+/* line 225, ../sass/samuells.scss */
 main {
-  padding-top: 30px; }
+  padding-top: 30px;
+}
 
-/* line 218, ../sass/samuells.scss */
+/* line 230, ../sass/samuells.scss */
 #projects figure {
   display: inline-block;
   max-width: 120px;
-  margin: 0; }
-/* line 224, ../sass/samuells.scss */
+  margin: 0;
+}
+/* line 236, ../sass/samuells.scss */
 #projects img {
   border: 2px solid #43594a;
   border-radius: 50%;
   width: 100px;
-  height: 100px; }
+  height: 100px;
+}
 
-/* line 234, ../sass/samuells.scss */
+/* line 246, ../sass/samuells.scss */
 #tskills .column {
-  width: 28%; }
-/* line 238, ../sass/samuells.scss */
+  width: 300px;
+}
+/* line 250, ../sass/samuells.scss */
 #tskills span {
   display: inline-block;
-  margin-left: 3px; }
-/* line 243, ../sass/samuells.scss */
+}
+/* line 254, ../sass/samuells.scss */
 #tskills span.skill {
   float: right;
   margin-right: 10px;
-  height: 25px; }
-  /* line 247, ../sass/samuells.scss */
+  height: 25px;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  /* line 254, ../sass/samuells.scss */
+  #tskills span.skill {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 20px;
+  }
+}
+/* line 267, ../sass/samuells.scss */
+#tskills span.skill.left {
+  float: left;
+  margin-left: 10px;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  /* line 267, ../sass/samuells.scss */
   #tskills span.skill.left {
-    float: left;
-    margin-left: 10px; }
-  /* line 252, ../sass/samuells.scss */
-  #tskills span.skill:hover span.name {
-    color: #43594a;
-    text-shadow: 1px 0 2px rgba(67, 89, 74, 0.5);
-    font-size: 1.1em; }
-  /* line 257, ../sass/samuells.scss */
-  #tskills span.skill:hover span.bar {
-    border-color: #43594a; }
-    /* line 259, ../sass/samuells.scss */
-    #tskills span.skill:hover span.bar.full {
-      background: #43594a; }
-  /* line 263, ../sass/samuells.scss */
-  #tskills span.skill:hover span.bar {
-    box-shadow: 1px 0 2px rgba(67, 89, 74, 0.5); }
-/* line 268, ../sass/samuells.scss */
+    float: none;
+    margin-left: auto;
+  }
+}
+/* line 277, ../sass/samuells.scss */
+#tskills span.skill:hover span.name {
+  color: #43594a;
+  text-shadow: 1px 0 2px rgba(67, 89, 74, 0.5);
+  font-size: 1.1em;
+}
+/* line 282, ../sass/samuells.scss */
+#tskills span.skill:hover span.bar {
+  border-color: #43594a;
+}
+/* line 284, ../sass/samuells.scss */
+#tskills span.skill:hover span.bar.full {
+  background: #43594a;
+}
+/* line 288, ../sass/samuells.scss */
+#tskills span.skill:hover span.bar {
+  box-shadow: 1px 0 2px rgba(67, 89, 74, 0.5);
+}
+/* line 293, ../sass/samuells.scss */
 #tskills span.name {
   margin-right: 10px;
   width: 80px;
-  text-align: right; }
-/* line 273, ../sass/samuells.scss */
+  text-align: right;
+}
+/* line 298, ../sass/samuells.scss */
 #tskills span.bar {
+  margin-left: 3px;
   height: 5px;
   width: 20px;
   border: 2px solid #43594a;
   border-radius: 20% 30% 10% 40%;
   box-shadow: 10px;
-  background: #e5e5e5; }
-  /* line 280, ../sass/samuells.scss */
-  #tskills span.bar.full {
-    background: gray; }
+  background: #e5e5e5;
+}
+/* line 306, ../sass/samuells.scss */
+#tskills span.bar.full {
+  background: gray;
+}
 
-/* line 286, ../sass/samuells.scss */
+/* line 312, ../sass/samuells.scss */
 #wexp, #education, #cercou, #contact {
-  width: 100%; }
-  /* line 288, ../sass/samuells.scss */
-  #wexp > div:hover, #education > div:hover, #cercou > div:hover, #contact > div:hover {
-    background-color: #8CA693;
-    color: #EAFAF8; }
-    /* line 292, ../sass/samuells.scss */
-    #wexp > div:hover h2, #wexp > div:hover h3, #wexp > div:hover mark, #education > div:hover h2, #education > div:hover h3, #education > div:hover mark, #cercou > div:hover h2, #cercou > div:hover h3, #cercou > div:hover mark, #contact > div:hover h2, #contact > div:hover h3, #contact > div:hover mark {
-      color: #EAFAF8; }
-  /* line 296, ../sass/samuells.scss */
+  width: 100%;
+}
+/* line 314, ../sass/samuells.scss */
+#wexp > div:hover, #education > div:hover, #cercou > div:hover, #contact > div:hover {
+  background-color: #8CA693;
+  color: #EAFAF8;
+}
+/* line 318, ../sass/samuells.scss */
+#wexp > div:hover h2, #wexp > div:hover h3, #wexp > div:hover mark, #education > div:hover h2, #education > div:hover h3, #education > div:hover mark, #cercou > div:hover h2, #cercou > div:hover h3, #cercou > div:hover mark, #contact > div:hover h2, #contact > div:hover h3, #contact > div:hover mark {
+  color: #EAFAF8;
+}
+/* line 322, ../sass/samuells.scss */
+#wexp div, #education div, #cercou div, #contact div {
+  max-width: 100%;
+}
+/* line 324, ../sass/samuells.scss */
+#wexp div div, #education div div, #cercou div div, #contact div div {
+  max-width: 100%;
+  font: 300 16px "PT Sans Narrow", sans-serif;
+  text-align: center;
+  margin-bottom: 0.2em;
+}
+/* line 329, ../sass/samuells.scss */
+#wexp div div.tleft, #education div div.tleft, #cercou div div.tleft, #contact div div.tleft {
+  width: 50%;
+  text-align: left;
+}
+/* line 335, ../sass/samuells.scss */
+#wexp > div, #education > div, #cercou > div, #contact > div {
+  padding-bottom: 0.2em;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  /* line 335, ../sass/samuells.scss */
   #wexp > div, #education > div, #cercou > div, #contact > div {
-    padding-bottom: 0.2em; }
-  /* line 299, ../sass/samuells.scss */
-  #wexp div, #education div, #cercou div, #contact div {
-    max-width: 100%; }
-    /* line 301, ../sass/samuells.scss */
-    #wexp div div, #education div div, #cercou div div, #contact div div {
-      max-width: 100%;
-      font: 300 16px "PT Sans Narrow", sans-serif;
-      text-align: center;
-      margin-bottom: 0.2em; }
-      /* line 306, ../sass/samuells.scss */
-      #wexp div div.tleft, #education div div.tleft, #cercou div div.tleft, #contact div div.tleft {
-        width: 50%;
-        text-align: left; }
-  /* line 312, ../sass/samuells.scss */
-  #wexp h3, #education h3, #cercou h3, #contact h3 {
-    color: #5c5c5c;
-    margin: 0.8em 0 0.5em 0; }
-    /* line 315, ../sass/samuells.scss */
-    #wexp h3 mark, #education h3 mark, #cercou h3 mark, #contact h3 mark {
-      font: 300 16px "PT Sans Narrow", sans-serif;
-      font-size: 0.9em;
-      background-color: transparent;
-      color: #676767; }
+    padding: 0 1em;
+  }
+}
+/* line 342, ../sass/samuells.scss */
+#wexp h3, #education h3, #cercou h3, #contact h3 {
+  color: #5c5c5c;
+  margin: 0.8em 0 0.5em 0;
+}
+/* line 345, ../sass/samuells.scss */
+#wexp h3 mark, #education h3 mark, #cercou h3 mark, #contact h3 mark {
+  font: 300 16px "PT Sans Narrow", sans-serif;
+  font-size: 0.9em;
+  background-color: transparent;
+  color: #676767;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  /* line 345, ../sass/samuells.scss */
+  #wexp h3 mark, #education h3 mark, #cercou h3 mark, #contact h3 mark {
+    display: block;
+  }
+}
 
-/* line 325, ../sass/samuells.scss */
+/* line 359, ../sass/samuells.scss */
 #languages figure {
   display: inline-block;
   max-width: 100px;
-  margin: 0 20px; }
-/* line 330, ../sass/samuells.scss */
+  margin: 0 20px;
+}
+/* line 364, ../sass/samuells.scss */
 #languages text {
   font: 300 16px "Chau Philomene One", sans-serif;
   font-size: 30px;
@@ -305,8 +417,9 @@ main {
   word-spacing: 0px;
   fill: #676767;
   fill-opacity: 1;
-  stroke: none; }
-/* line 339, ../sass/samuells.scss */
+  stroke: none;
+}
+/* line 373, ../sass/samuells.scss */
 #languages .circle_line {
   fill: none;
   stroke: #43594a;
@@ -314,20 +427,25 @@ main {
   stroke-dasharray: 300%;
   stroke-linecap: round;
   stroke-dashoffset: 300%;
-  transition: stroke-dashoffset 3s; }
-  /* line 347, ../sass/samuells.scss */
-  #languages .circle_line.de {
-    stroke-dashoffset: 120%; }
-  /* line 350, ../sass/samuells.scss */
-  #languages .circle_line.en {
-    stroke-dashoffset: 60%; }
-  /* line 353, ../sass/samuells.scss */
-  #languages .circle_line.sk {
-    stroke-dashoffset: 0%; }
-  /* line 356, ../sass/samuells.scss */
-  #languages .circle_line.cz {
-    stroke-dashoffset: 60%; }
-/* line 360, ../sass/samuells.scss */
+  transition: stroke-dashoffset 3s;
+}
+/* line 381, ../sass/samuells.scss */
+#languages .circle_line.de {
+  stroke-dashoffset: 120%;
+}
+/* line 384, ../sass/samuells.scss */
+#languages .circle_line.en {
+  stroke-dashoffset: 60%;
+}
+/* line 387, ../sass/samuells.scss */
+#languages .circle_line.sk {
+  stroke-dashoffset: 0%;
+}
+/* line 390, ../sass/samuells.scss */
+#languages .circle_line.cz {
+  stroke-dashoffset: 60%;
+}
+/* line 394, ../sass/samuells.scss */
 #languages .circle_line2 {
   fill: none;
   stroke-opacity: 0.5;
@@ -335,23 +453,28 @@ main {
   stroke-blur: 2;
   stroke-width: 5;
   stroke-dasharray: 300%;
-  stroke-linecap: round; }
-/* line 370, ../sass/samuells.scss */
+  stroke-linecap: round;
+}
+/* line 404, ../sass/samuells.scss */
 #languages.charfix figcaption {
   font: 300 16px "PT Sans Narrow", sans-serif;
-  font-weight: 700; }
+  font-weight: 700;
+}
 
-/* line 377, ../sass/samuells.scss */
+/* line 411, ../sass/samuells.scss */
 #contact h2 {
-  margin-bottom: 0.4em; }
-/* line 380, ../sass/samuells.scss */
+  margin-bottom: 0.4em;
+}
+/* line 414, ../sass/samuells.scss */
 #contact div {
-  font: 300 16px "PT Sans Narrow", sans-serif; }
-/* line 383, ../sass/samuells.scss */
+  font: 300 16px "PT Sans Narrow", sans-serif;
+}
+/* line 417, ../sass/samuells.scss */
 #contact strong {
-  font: 300 16px "Chau Philomene One", sans-serif; }
+  font: 300 16px "Chau Philomene One", sans-serif;
+}
 
-/* line 389, ../sass/samuells.scss */
+/* line 423, ../sass/samuells.scss */
 footer div {
   height: 2em;
   width: 100%;
@@ -360,4 +483,5 @@ footer div {
   margin-top: 2em;
   padding-top: 0.5em;
   font: 300 16px "PT Sans Narrow", sans-serif;
-  background-color: rgba(67, 89, 74, 0.2); }
+  background-color: rgba(67, 89, 74, 0.2);
+}

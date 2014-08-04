@@ -337,7 +337,7 @@ function dataController($window, $scope){
 				name:'Smarter Planer',
 				url:'http://www.ibm.com/smarterplanet/'			
 			}],
-			techs:'HTML, CSS, Photoshop, CSM',
+			techs:'HTML, CSS, Photoshop, CMS',
 			info:{	en:"In the summer 2010, during the summer holiday, IBM gave me the first real opportunity to work in IT. Before this job I worked only on the side projects and study assignments. Here I had to communicate in english and solved the real tasks. I was a part of team which created and administered the websites of 'Smarter Planet for whole world. That's the story how I started to work.",
 					de:'',
 					sk:"V lete roku 2010 som sa prihlásil na praktikum do IBM. Na moje prekvapenie ma zobrali a tak sa naštartoval moju IT kariéru. V IBM som sa stretol s kopou super ľudí a anglicky hovoriacim šéfom. Značne som si zlepšil angličtinu, keďže emailová komuníkacia prebiehala s celým svetom. V rámci tímu som sa podielal na vytvorení stránok projektu 'Smarter Planet' a na jeho správe. Získal som more skúseností a prvý pohľad do biznis sveta. Až neskôr som si uvedomil, že to bol začiatok mojej IT kariéry."},
