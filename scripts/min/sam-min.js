@@ -102,9 +102,12 @@ module.directive("samFilling", function($window){
 				// console.log(scope.element[0].offsetTop +'-'+ $window.innerHeight +'-'+ $window.pageYOffset)
 				// console.log(scope.element[0].offsetTop - $window.innerHeight - $window.pageYOffset)
 				// console.log(scope.lang);
-				if(!scope.lang && scope.element[0].offsetTop < ($window.innerHeight + $window.pageYOffset)){
+				// console.log(scope.element[0].getBoundingClientRect().top-$window.innerHeight);
+				// console.log(scope.element[0].offsetTop);
+				// if(!scope.lang && scope.element[0].offsetTop < ($window.innerHeight + $window.pageYOffset)){
+				if(!scope.lang && 0>(scope.element[0].getBoundingClientRect().top-$window.innerHeight)){
 					scope.lang=true;
-					// console.log('changed');
+					console.log('changed');
 				}
 	            scope.$apply();
 	        });

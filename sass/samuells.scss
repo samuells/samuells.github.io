@@ -382,7 +382,7 @@ main{
 	    stroke-dasharray:300%;
 	    stroke-linecap:round;
 	    stroke-dashoffset:300%;
-	    transition: stroke-dashoffset 3s;
+	    @include transition(stroke-dashoffset 3s);
 	    &.de{
 	    	stroke-dashoffset:120%;
 	    }
