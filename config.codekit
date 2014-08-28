@@ -47,6 +47,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/img\/favicon.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1490,
+		"inputAbbreviatedPath": "\/img\/favicon.png",
+		"outputAbbreviatedPath": "\/img\/favicon.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 1
+		},
 	"\/img\/iteas.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -56,7 +67,7 @@
 		"outputAbbreviatedPath": "\/img\/iteas.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 0
+		"processed": 1
 		},
 	"\/img\/pexeso.png": {
 		"fileType": 32768,
@@ -67,7 +78,7 @@
 		"outputAbbreviatedPath": "\/img\/pexeso.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 0
+		"processed": 1
 		},
 	"\/img\/profile_pic.png": {
 		"fileType": 32768,
@@ -78,7 +89,7 @@
 		"outputAbbreviatedPath": "\/img\/profile_pic.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 0
+		"processed": 1
 		},
 	"\/img\/samuel_snopko.jpg": {
 		"fileType": 16384,
@@ -89,7 +100,7 @@
 		"outputAbbreviatedPath": "\/img\/samuel_snopko.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 0
+		"processed": 1
 		},
 	"\/img\/Twitter_logo_blue.png": {
 		"fileType": 32768,
@@ -100,7 +111,7 @@
 		"outputAbbreviatedPath": "\/img\/Twitter_logo_blue.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 0
+		"processed": 1
 		},
 	"\/index.html": {
 		"fileType": 8192,
