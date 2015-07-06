@@ -1227,11 +1227,35 @@ th.hide-for-touch {
   width: 100%;
   float: left;
 }
+.profile .portrait {
+  background-color: purple;
+  width: 70%;
+  height: 50vh;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("http://lorempixel.com/500/1200/people/");
+}
 .profile .skills-column {
   padding-left: 0;
   padding-right: 0;
   width: 50%;
   float: left;
+}
+@media only screen and (min-width: 40.063em) {
+  .profile .picture {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    width: 41.66667%;
+    float: left;
+  }
+  .profile .info {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    width: 58.33333%;
+    float: left;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
