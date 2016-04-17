@@ -1596,7 +1596,7 @@ body {
 }
 
 body {
-  padding-top: 4.375rem;
+  padding-top: 6.875rem;
 }
 
 .row {
@@ -1769,6 +1769,18 @@ body {
 @media only screen and (min-width: 40.063em) {
   .mobile-topbar {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 40.063em) {
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 4.375rem;
+    padding-bottom: 0.625rem;
+    background-color: #FFFFFF;
   }
 }
 
