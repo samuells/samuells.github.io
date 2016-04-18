@@ -2159,6 +2159,7 @@ body {
 .tile-content {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 .tile-row {
@@ -2206,6 +2207,59 @@ body {
 }
 .tile.flex-column .tile.big {
   flex-basis: 21.25rem;
+}
+
+footer .resume-col,
+footer .social-col {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  float: left;
+  padding: 0 0.625rem;
+}
+footer .resume-col p {
+  padding: 2rem 0;
+  margin: 0;
+  text-align: center;
+}
+footer .border {
+  width: 100%;
+  height: 0.3125rem;
+  background-image: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%3F%3E%0A%3Csvg%20viewBox%3D%220%200%20160%20120%22%20version%3D%221.1%22%0A%20%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%0A%20%20%3Ccircle%20cx%3D%2280%22%20cy%3D%2260%22%20r%3D%2250%22/%3E%0A%3C/svg%3E);
+}
+footer .social-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding: 2rem 0 2rem;
+  text-align: center;
+}
+footer .social-list > li {
+  display: inline-block;
+}
+footer .social-link .icon {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.25rem;
+  margin: 0 0.25rem;
+  fill: #999999;
+  transition-property: fill;
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+}
+footer .social-link span {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  word-wrap: normal;
+}
+footer .social-link:hover .icon, footer .social-link:active .icon, footer .social-link:focus .icon {
+  fill: #000000;
 }
 
 /*# sourceMappingURL=styles.css.map */
