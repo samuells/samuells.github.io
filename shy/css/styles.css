@@ -764,31 +764,32 @@ a {
 @keyframes trigger-slide-in-right {
   0% {
     opacity: 1;
-    transform: translateX(0%); }
+    z-index: 10; }
   75% {
     opacity: 0; }
   100% {
     opacity: 0;
-    transform: translateX(100%); } }
+    z-index: 0; } }
 
 @keyframes trigger-slide-in-left {
   0% {
     opacity: 1;
-    transform: translateX(0%); }
+    z-index: 10; }
   75% {
     opacity: 0; }
   100% {
     opacity: 0;
-    transform: translateX(-100%); } }
+    z-index: 0; } }
 
 @keyframes trigger-slide-back {
   0% {
-    opacity: 0; }
+    opacity: 0;
+    z-index: 0; }
   50% {
     opacity: 0; }
   100% {
     opacity: 1;
-    transform: translateX(0%); } }
+    z-index: 10; } }
 
 header {
   position: fixed;
@@ -851,23 +852,21 @@ header {
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards; }
+    header a#js-show-contact {
+      z-index: 10; }
     header a#js-hide-contact {
-      transform: translateX(100%);
+      z-index: 0;
       opacity: 0; }
     .contact-shown header a#js-hide-contact {
-      transform: translateX(100%);
       opacity: 0;
       animation-name: trigger-slide-back; }
     .contact-shown header a#js-show-contact {
-      transform: translateX(0%);
       opacity: 1;
       animation-name: trigger-slide-in-left; }
     .contact-hidden header a#js-hide-contact {
-      transform: translateX(0%);
       opacity: 1;
       animation-name: trigger-slide-in-right; }
     .contact-hidden header a#js-show-contact {
-      transform: translateX(-100%);
       opacity: 0;
       animation-name: trigger-slide-back; }
   @media print, screen and (min-width: 46.25em) {
