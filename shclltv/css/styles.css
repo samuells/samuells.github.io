@@ -1518,7 +1518,7 @@ a.pswp__share--download:hover {
 
 a {
   transition-property: color;
-  transition-duration: 200ms;
+  transition-duration: 400ms;
   transition-timing-function: ease-out; }
   a:focus, a:hover {
     color: #FFE300; }
@@ -1601,7 +1601,7 @@ a {
     position: relative;
     margin: 0.1875rem 0;
     transition-property: color;
-    transition-duration: 200ms;
+    transition-duration: 400ms;
     transition-timing-function: ease-out; }
     .nav-header .menu-trigger > span {
       position: absolute !important;
@@ -1637,7 +1637,7 @@ a {
       opacity: 0;
       transform: translateY(-1rem);
       transition-property: opacity, transform;
-      transition-duration: 200ms;
+      transition-duration: 400ms;
       transition-timing-function: ease-out; }
   .nav-header.menu-showed .overlay-menu {
     opacity: 1;
@@ -1682,8 +1682,11 @@ a {
         .nav-header .logo-wrapper a,
         .nav-header .quick-menu-wrapper a {
           display: inline-block;
-          padding: 1.125rem 0;
-          font-size: 1.125rem; }
+          padding: 1.125rem 0; }
+        .nav-header .logo-wrapper img,
+        .nav-header .quick-menu-wrapper img {
+          height: 1.5rem;
+          padding: 0.125rem 0 0.25rem; }
       .nav-header .menu-wrapper {
         width: 16.66667%;
         float: left;
@@ -1732,7 +1735,7 @@ a {
   width: 2.5rem;
   height: 1rem;
   transition-property: transform;
-  transition-duration: 200ms;
+  transition-duration: 400ms;
   transition-timing-function: ease-out;
   transition-duration: 500ms; }
   .icon-hamburger:after, .icon-hamburger:before {
@@ -1745,12 +1748,12 @@ a {
   .icon-hamburger:before {
     top: 0;
     transition-property: transform, top;
-    transition-duration: 200ms;
+    transition-duration: 400ms;
     transition-timing-function: ease-out; }
   .icon-hamburger:after {
     bottom: 0;
     transition-property: transform, bottom;
-    transition-duration: 200ms;
+    transition-duration: 400ms;
     transition-timing-function: ease-out; }
   .icon-hamburger span {
     position: absolute;
@@ -1762,7 +1765,7 @@ a {
     background-color: #FFFFFF;
     transform: translateY(-50%);
     transition-property: opacity;
-    transition-duration: 200ms;
+    transition-duration: 400ms;
     transition-timing-function: ease-out; }
   .menu-showed .icon-hamburger {
     transform: rotateZ(180deg); }
@@ -1818,6 +1821,14 @@ a {
     transform: translateX(0%);
     opacity: 1; } }
 
+@keyframes anim-home-offer-after {
+  from {
+    transform: translateX(-100%); }
+  50% {
+    transform: translateX(0%); }
+  to {
+    transform: translateX(101%); } }
+
 @keyframes anim-home-offer-out {
   from {
     opacity: 1; }
@@ -1825,8 +1836,8 @@ a {
     opacity: 0; } }
 
 @keyframes anim-social-bar {
-  from,
-  80% {
+  80%,
+  from {
     opacity: 0;
     transform: translateY(100%); }
   to {
@@ -1844,6 +1855,19 @@ a {
 @keyframes anim-manifest-img-out {
   from {
     opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@keyframes anim-loading-dots {
+  from {
+    opacity: 0; }
+  20% {
+    opacity: 0; }
+  40%,
+  60% {
+    opacity: 1; }
+  80% {
+    opacity: 0; }
   to {
     opacity: 0; } }
 
@@ -1908,30 +1932,60 @@ a {
     padding: 0;
     margin: 0;
     flex: 1 1 100%; }
+  .home-offer li:nth-child(1) .label::after {
+    animation-name: anim-home-offer-after;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 3.25s; }
   .home-offer li:nth-child(1) .label span {
     animation-name: anim-home-offer;
     animation-duration: 500ms;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     animation-delay: 3.25s; }
+  .home-offer li:nth-child(2) .label::after {
+    animation-name: anim-home-offer-after;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 3.5s; }
   .home-offer li:nth-child(2) .label span {
     animation-name: anim-home-offer;
     animation-duration: 500ms;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     animation-delay: 3.5s; }
+  .home-offer li:nth-child(3) .label::after {
+    animation-name: anim-home-offer-after;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 3.75s; }
   .home-offer li:nth-child(3) .label span {
     animation-name: anim-home-offer;
     animation-duration: 500ms;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     animation-delay: 3.75s; }
+  .home-offer li:nth-child(4) .label::after {
+    animation-name: anim-home-offer-after;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 4s; }
   .home-offer li:nth-child(4) .label span {
     animation-name: anim-home-offer;
     animation-duration: 500ms;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     animation-delay: 4s; }
+  .home-offer li:nth-child(5) .label::after {
+    animation-name: anim-home-offer-after;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 4.25s; }
   .home-offer li:nth-child(5) .label span {
     animation-name: anim-home-offer;
     animation-duration: 500ms;
@@ -1978,7 +2032,7 @@ a {
     line-height: 1.2;
     text-align: center;
     transition-property: color;
-    transition-duration: 200ms;
+    transition-duration: 400ms;
     transition-timing-function: ease-out; }
   .home-offer .manifest-img {
     position: absolute;
@@ -1991,8 +2045,9 @@ a {
     background-position: center;
     opacity: 0;
     transition-property: opacity;
-    transition-duration: 200ms;
-    transition-timing-function: ease-out; }
+    transition-duration: 400ms;
+    transition-timing-function: ease-out;
+    transition-duration: 400ms; }
     .home-offer .manifest-img span {
       position: absolute !important;
       width: 1px;
@@ -2022,6 +2077,7 @@ a {
     margin-right: auto;
     margin-left: auto;
     display: none;
+    width: 100%;
     padding: 0 1.25rem; }
     .home-offer .choose::before, .home-offer .choose::after {
       display: table;
@@ -2040,6 +2096,7 @@ a {
       height: 1px;
       overflow: hidden;
       clip: rect(0, 0, 0, 0); }
+  .home-offer .loading-label,
   .home-offer .play {
     display: none; }
   .home-offer .label {
@@ -2047,7 +2104,7 @@ a {
     display: block;
     overflow: hidden; }
     .home-offer .label::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -2057,6 +2114,19 @@ a {
       background-color: #FFFFFF;
       transform: translateX(-100%);
       transition-property: transform; }
+    .home-offer .label::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: #FFFFFF;
+      transform: translateX(-100%);
+      transition-property: transform;
+      transition-duration: 400ms;
+      transition-timing-function: ease-out; }
     .home-offer .label.loading::before {
       transform: translateX(0%);
       transition-duration: 1000ms;
@@ -2096,48 +2166,142 @@ a {
       line-height: 1; }
       .home-offer a:not(.choosed):active, .home-offer a:not(.choosed):focus, .home-offer a:not(.choosed):hover {
         color: #FFE300; }
-      .home-offer a.choosed {
-        color: #FFE300; }
-        .home-offer a.choosed .play {
-          opacity: 1; }
-    .home-offer .play {
-      position: absolute;
-      right: 100%;
-      display: inline-block;
-      padding-right: 8.75rem;
-      font-size: 0.4em;
-      line-height: 4.875rem;
-      color: #FFFFFF;
-      vertical-align: bottom;
-      opacity: 0;
-      transition-property: opacity;
-      transition-duration: 200ms;
-      transition-timing-function: ease-out; }
-      .home-offer .play::after {
-        content: '';
+    .home-offer .link-wrapper {
+      position: relative;
+      display: flex;
+      width: 100%;
+      margin-left: auto; }
+      .home-offer .link-wrapper .play-line {
+        position: relative;
+        flex: 1 1 auto;
+        opacity: 0;
+        transition-property: opacity;
+        transition-duration: 400ms;
+        transition-timing-function: ease-out; }
+        .home-offer .link-wrapper .play-line:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 1.25rem;
+          display: inline-block;
+          width: calc(100% - 2.5rem);
+          border: 0.0625rem solid #FFFFFF;
+          margin: 0;
+          transform: translateY(-50%); }
+      .home-offer .link-wrapper .play,
+      .home-offer .link-wrapper a {
+        flex: 0 0 auto; }
+      .home-offer .link-wrapper .play {
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+        line-height: 1;
+        color: #FFFFFF;
+        vertical-align: bottom;
+        overflow: hidden; }
+        .home-offer .link-wrapper .play span {
+          transform: translateX(-100%);
+          opacity: 0;
+          transition-property: opacity, transform;
+          transition-duration: 400ms;
+          transition-timing-function: ease-out; }
+      .home-offer .link-wrapper .loading-label {
         position: absolute;
         top: 50%;
-        right: 0;
-        display: inline-block;
-        width: 6.25rem;
-        border: 0.0625rem solid currentColor;
-        margin: 0 1.25rem;
-        transform: rotateY(-50%); } }
+        left: 0;
+        display: flex;
+        font-size: 2rem;
+        transform: translateY(-50%);
+        overflow: hidden; }
+        .home-offer .link-wrapper .loading-label span {
+          line-height: 1.2;
+          color: #FFE300;
+          opacity: 0;
+          transform: translateX(-100%);
+          transition-property: transform, opacity;
+          transition-duration: 400ms;
+          transition-timing-function: ease-out; }
+          .home-offer .link-wrapper .loading-label span i {
+            font-style: normal;
+            opacity: 0; }
+    .home-offer li.choosed a {
+      color: #FFE300; }
+    .home-offer li.choosed .play-line {
+      opacity: 1; }
+    .home-offer li.choosed .play span {
+      transform: translateX(0%);
+      opacity: 1; }
+    .home-offer li.loading .play-line {
+      opacity: 0; }
+    .home-offer li.loading .play span {
+      transform: translateX(100%);
+      opacity: 1; }
+    .home-offer li.loading .loading-label span {
+      opacity: 1;
+      transform: translateX(0%); }
+      .home-offer li.loading .loading-label span i:nth-child(1) {
+        animation-name: anim-loading-dots;
+        animation-duration: 900ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 425ms;
+        animation-iteration-count: infinite;
+        animation-direction: alternate; }
+      .home-offer li.loading .loading-label span i:nth-child(2) {
+        animation-name: anim-loading-dots;
+        animation-duration: 900ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 725ms;
+        animation-iteration-count: infinite;
+        animation-direction: alternate; }
+      .home-offer li.loading .loading-label span i:nth-child(3) {
+        animation-name: anim-loading-dots;
+        animation-duration: 900ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 1025ms;
+        animation-iteration-count: infinite;
+        animation-direction: alternate; } }
   @media screen and (min-width: 64em) {
     .home-offer a {
       font-size: 4.75rem;
-      line-height: 1.10526; }
+      line-height: 1.10526; } }
+  @media screen and (min-width: 64em) and (min-height: 680px) {
+    .home-offer a {
+      padding: 1.5vh 0; } }
+  @media screen and (min-width: 64em) {
+    .home-offer .link-wrapper {
+      width: 50%; }
+      .home-offer .link-wrapper .play-line:after {
+        width: 100%;
+        left: -1.25rem; }
+      .home-offer .link-wrapper .play {
+        font-size: 2.875rem;
+        transform: translateX(-50%); }
+      .home-offer .link-wrapper .loading-label {
+        font-size: 2.875rem;
+        transform: translateX(-50%) translateY(-50%); }
     .home-offer .choose {
       padding: 0 2.5rem; } }
-  @media screen and (min-width: 87.5em) {
-    .home-offer a {
-      font-size: 6.875rem;
-      line-height: 1; } }
+
+@media screen and (min-width: 87.5em) and (min-height: 680px) {
+  .home-offer a {
+    padding: 0.5vh 0;
+    font-size: 6.875rem;
+    line-height: 1; } }
+
+@media screen and (min-width: 120em) and (min-height: 781px) {
+  .home-offer a {
+    padding: 1vh 0;
+    font-size: 8.75rem; } }
   @media screen and (min-width: 120em) {
-    .home-offer a {
-      font-size: 8.75rem; }
+    .home-offer .link-wrapper .play {
+      font-size: 3.375rem; }
+    .home-offer .link-wrapper .loading-label {
+      font-size: 3.375rem; }
     .home-offer .choose {
-      padding: 0 5rem; } }
+      padding-left: calc((100vw - 1900px) / 2 + 5rem); } }
 
 .social-bar {
   position: fixed;
@@ -2259,377 +2423,402 @@ a {
     opacity: 0;
     transform: translateY(-50%) translateX(6.25rem); } }
 
-.page--projects {
+.page--projects .thumbnails-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh; }
+  .page--projects .thumbnails-list .project-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%; }
+  .page--projects .thumbnails-list img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 400ms;
+    transition-timing-function: ease-out; }
+  .page--projects .thumbnails-list .project-thumbnail.showed img {
+    opacity: 1; }
+
+.page--projects .projects-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   max-width: 118.75rem;
   margin-right: auto;
   margin-left: auto;
-  padding: 6rem 1.25rem 0; }
-  .page--projects::before, .page--projects::after {
+  padding: 4.5rem 1.25rem 0; }
+  .page--projects .projects-list::before, .page--projects .projects-list::after {
     display: table;
     content: ' '; }
-  .page--projects::after {
+  .page--projects .projects-list::after {
     clear: both; }
   @media screen and (min-width: 120em) {
-    .page--projects {
+    .page--projects .projects-list {
       max-width: 98.95833%; } }
   @media screen and (min-width: 120em) {
-    .page--projects {
+    .page--projects .projects-list {
       max-width: 118.75rem; } }
-  @media print, screen and (min-width: 46.25em) {
-    .page--projects {
-      padding-top: 12rem; } }
   @media screen and (min-width: 64em) {
-    .page--projects {
-      padding: 22.5rem 2.5rem 0; } }
+    .page--projects .projects-list {
+      padding: 6.75rem 2.5rem 0; } }
   @media screen and (min-width: 120em) {
-    .page--projects {
-      padding: 30rem 5rem 0; } }
-  .page--projects .projects-list {
-    list-style: none;
-    padding: 0;
-    margin: 0; }
-    .page--projects .projects-list a {
-      position: relative;
-      display: block; }
-    .page--projects .projects-list h2,
-    .page--projects .projects-list p {
-      max-width: 60%; }
-    .page--projects .projects-list .project-thumbnail {
+    .page--projects .projects-list {
+      padding: 8.25rem 5rem 0; } }
+  .page--projects .projects-list a {
+    position: relative;
+    display: block; }
+  .page--projects .projects-list h2,
+  .page--projects .projects-list p {
+    max-width: 60%; }
+  .page--projects .projects-list .project-thumbnail {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 80%;
+    max-width: 12.5rem;
+    transform: translateY(-50%);
+    z-index: -1;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 400ms;
+    transition-timing-function: ease-out;
+    transition-duration: 600ms; }
+    .page--projects .projects-list .project-thumbnail span {
       position: absolute;
       top: 50%;
-      right: 0;
-      width: 80%;
-      max-width: 12.5rem;
-      transform: translateY(-50%);
-      z-index: -1;
-      opacity: 0;
-      transition-property: opacity;
-      transition-duration: 200ms;
-      transition-timing-function: ease-out;
-      transition-duration: 600ms; }
-      .page--projects .projects-list .project-thumbnail span {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        display: block;
-        transform: translateX(-50%) translateY(-50%); }
-    .page--projects .projects-list a.choosed {
-      z-index: 1; }
-      .page--projects .projects-list a.choosed .project-thumbnail {
-        opacity: 1; }
-    .page--projects .projects-list li {
-      padding: 0.75rem 0;
-      opacity: 0;
-      transform: translateY(1.25rem); }
-      .page--projects .projects-list li:nth-child(1) {
-        animation-name: anim-project-preview;
-        animation-duration: 500ms;
+      left: 50%;
+      display: block;
+      transform: translateX(-50%) translateY(-50%); }
+  .page--projects .projects-list a.choosed {
+    z-index: 1; }
+    .page--projects .projects-list a.choosed .project-thumbnail {
+      opacity: 1; }
+  .page--projects .projects-list li {
+    padding: 0.75rem 0;
+    opacity: 0;
+    transform: translateY(1.25rem); }
+    .page--projects .projects-list li:nth-child(1) {
+      animation-name: anim-project-preview;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 0.3s; }
+    .page--projects .projects-list li:nth-child(2) {
+      animation-name: anim-project-preview;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 0.6s; }
+    .page--projects .projects-list li:nth-child(3) {
+      animation-name: anim-project-preview;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 0.9s; }
+    .page--projects .projects-list li:nth-child(4) {
+      animation-name: anim-project-preview;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 1.2s; }
+    .page--projects .projects-list li:nth-child(5) {
+      animation-name: anim-project-preview;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 1.5s; }
+    .page--projects .projects-list li:nth-child(6) {
+      animation-name: anim-project-preview;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 1.8s; }
+    .page--projects .projects-list li:nth-child(7) {
+      animation-name: anim-project-preview;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 2.1s; }
+    .page--projects .projects-list li:nth-child(8) {
+      animation-name: anim-project-preview;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 2.4s; }
+    .page--projects .projects-list li:nth-child(9) {
+      animation-name: anim-project-preview;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 2.7s; }
+    .page--projects .projects-list li:nth-child(10) {
+      animation-name: anim-project-preview;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 3s; }
+    .page--projects .projects-list li:nth-child(11) {
+      animation-name: anim-project-preview;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 3.3s; }
+    .page--projects .projects-list li:nth-child(12) {
+      animation-name: anim-project-preview;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 3.6s; }
+    .page--projects .projects-list li:nth-child(13) {
+      animation-name: anim-project-preview;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 3.9s; }
+    .page--projects .projects-list li:nth-child(14) {
+      animation-name: anim-project-preview;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 4.2s; }
+    .page--projects .projects-list li:nth-child(15) {
+      animation-name: anim-project-preview;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 4.5s; }
+    .is-exiting .page--projects .projects-list li {
+      opacity: 1;
+      transform: translateX(0); }
+      .is-exiting .page--projects .projects-list li:nth-child(1) {
+        animation-name: anim-project-preview-out;
+        animation-duration: 300ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
-        animation-delay: 0.3s; }
-      .page--projects .projects-list li:nth-child(2) {
-        animation-name: anim-project-preview;
-        animation-duration: 500ms;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: 0.6s; }
-      .page--projects .projects-list li:nth-child(3) {
-        animation-name: anim-project-preview;
-        animation-duration: 500ms;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: 0.9s; }
-      .page--projects .projects-list li:nth-child(4) {
-        animation-name: anim-project-preview;
-        animation-duration: 500ms;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: 1.2s; }
-      .page--projects .projects-list li:nth-child(5) {
-        animation-name: anim-project-preview;
-        animation-duration: 500ms;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: 1.5s; }
-      .page--projects .projects-list li:nth-child(6) {
-        animation-name: anim-project-preview;
-        animation-duration: 500ms;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: 1.8s; }
-      .page--projects .projects-list li:nth-child(7) {
-        animation-name: anim-project-preview;
-        animation-duration: 500ms;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: 2.1s; }
-      .page--projects .projects-list li:nth-child(8) {
-        animation-name: anim-project-preview;
-        animation-duration: 500ms;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: 2.4s; }
-      .page--projects .projects-list li:nth-child(9) {
-        animation-name: anim-project-preview;
-        animation-duration: 500ms;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: 2.7s; }
-      .page--projects .projects-list li:nth-child(10) {
-        animation-name: anim-project-preview;
-        animation-duration: 500ms;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: 3s; }
-      .page--projects .projects-list li:nth-child(11) {
-        animation-name: anim-project-preview;
-        animation-duration: 500ms;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: 3.3s; }
-      .page--projects .projects-list li:nth-child(12) {
-        animation-name: anim-project-preview;
-        animation-duration: 500ms;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: 3.6s; }
-      .page--projects .projects-list li:nth-child(13) {
-        animation-name: anim-project-preview;
-        animation-duration: 500ms;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: 3.9s; }
-      .page--projects .projects-list li:nth-child(14) {
-        animation-name: anim-project-preview;
-        animation-duration: 500ms;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: 4.2s; }
-      .page--projects .projects-list li:nth-child(15) {
-        animation-name: anim-project-preview;
-        animation-duration: 500ms;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: 4.5s; }
-      .is-exiting .page--projects .projects-list li {
-        opacity: 1;
-        transform: translateX(0); }
-        .is-exiting .page--projects .projects-list li:nth-child(1) {
-          animation-name: anim-project-preview-out;
+        animation-delay: 0s; }
+        .is-exiting .page--projects .projects-list li:nth-child(1) .project-thumbnail {
+          animation-name: anim-project-thumb-out;
           animation-duration: 300ms;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards;
           animation-delay: 0s; }
-          .is-exiting .page--projects .projects-list li:nth-child(1) .project-thumbnail {
-            animation-name: anim-project-thumb-out;
-            animation-duration: 300ms;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            animation-delay: 0s; }
-        .is-exiting .page--projects .projects-list li:nth-child(2) {
-          animation-name: anim-project-preview-out;
+      .is-exiting .page--projects .projects-list li:nth-child(2) {
+        animation-name: anim-project-preview-out;
+        animation-duration: 300ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 0.1s; }
+        .is-exiting .page--projects .projects-list li:nth-child(2) .project-thumbnail {
+          animation-name: anim-project-thumb-out;
           animation-duration: 300ms;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards;
           animation-delay: 0.1s; }
-          .is-exiting .page--projects .projects-list li:nth-child(2) .project-thumbnail {
-            animation-name: anim-project-thumb-out;
-            animation-duration: 300ms;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            animation-delay: 0.1s; }
-        .is-exiting .page--projects .projects-list li:nth-child(3) {
-          animation-name: anim-project-preview-out;
+      .is-exiting .page--projects .projects-list li:nth-child(3) {
+        animation-name: anim-project-preview-out;
+        animation-duration: 300ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 0.2s; }
+        .is-exiting .page--projects .projects-list li:nth-child(3) .project-thumbnail {
+          animation-name: anim-project-thumb-out;
           animation-duration: 300ms;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards;
           animation-delay: 0.2s; }
-          .is-exiting .page--projects .projects-list li:nth-child(3) .project-thumbnail {
-            animation-name: anim-project-thumb-out;
-            animation-duration: 300ms;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            animation-delay: 0.2s; }
-        .is-exiting .page--projects .projects-list li:nth-child(4) {
-          animation-name: anim-project-preview-out;
+      .is-exiting .page--projects .projects-list li:nth-child(4) {
+        animation-name: anim-project-preview-out;
+        animation-duration: 300ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 0.3s; }
+        .is-exiting .page--projects .projects-list li:nth-child(4) .project-thumbnail {
+          animation-name: anim-project-thumb-out;
           animation-duration: 300ms;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards;
           animation-delay: 0.3s; }
-          .is-exiting .page--projects .projects-list li:nth-child(4) .project-thumbnail {
-            animation-name: anim-project-thumb-out;
-            animation-duration: 300ms;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            animation-delay: 0.3s; }
-        .is-exiting .page--projects .projects-list li:nth-child(5) {
-          animation-name: anim-project-preview-out;
+      .is-exiting .page--projects .projects-list li:nth-child(5) {
+        animation-name: anim-project-preview-out;
+        animation-duration: 300ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 0.4s; }
+        .is-exiting .page--projects .projects-list li:nth-child(5) .project-thumbnail {
+          animation-name: anim-project-thumb-out;
           animation-duration: 300ms;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards;
           animation-delay: 0.4s; }
-          .is-exiting .page--projects .projects-list li:nth-child(5) .project-thumbnail {
-            animation-name: anim-project-thumb-out;
-            animation-duration: 300ms;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            animation-delay: 0.4s; }
-        .is-exiting .page--projects .projects-list li:nth-child(6) {
-          animation-name: anim-project-preview-out;
+      .is-exiting .page--projects .projects-list li:nth-child(6) {
+        animation-name: anim-project-preview-out;
+        animation-duration: 300ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 0.5s; }
+        .is-exiting .page--projects .projects-list li:nth-child(6) .project-thumbnail {
+          animation-name: anim-project-thumb-out;
           animation-duration: 300ms;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards;
           animation-delay: 0.5s; }
-          .is-exiting .page--projects .projects-list li:nth-child(6) .project-thumbnail {
-            animation-name: anim-project-thumb-out;
-            animation-duration: 300ms;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            animation-delay: 0.5s; }
-        .is-exiting .page--projects .projects-list li:nth-child(7) {
-          animation-name: anim-project-preview-out;
+      .is-exiting .page--projects .projects-list li:nth-child(7) {
+        animation-name: anim-project-preview-out;
+        animation-duration: 300ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 0.6s; }
+        .is-exiting .page--projects .projects-list li:nth-child(7) .project-thumbnail {
+          animation-name: anim-project-thumb-out;
           animation-duration: 300ms;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards;
           animation-delay: 0.6s; }
-          .is-exiting .page--projects .projects-list li:nth-child(7) .project-thumbnail {
-            animation-name: anim-project-thumb-out;
-            animation-duration: 300ms;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            animation-delay: 0.6s; }
-        .is-exiting .page--projects .projects-list li:nth-child(8) {
-          animation-name: anim-project-preview-out;
+      .is-exiting .page--projects .projects-list li:nth-child(8) {
+        animation-name: anim-project-preview-out;
+        animation-duration: 300ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 0.7s; }
+        .is-exiting .page--projects .projects-list li:nth-child(8) .project-thumbnail {
+          animation-name: anim-project-thumb-out;
           animation-duration: 300ms;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards;
           animation-delay: 0.7s; }
-          .is-exiting .page--projects .projects-list li:nth-child(8) .project-thumbnail {
-            animation-name: anim-project-thumb-out;
-            animation-duration: 300ms;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            animation-delay: 0.7s; }
-        .is-exiting .page--projects .projects-list li:nth-child(9) {
-          animation-name: anim-project-preview-out;
+      .is-exiting .page--projects .projects-list li:nth-child(9) {
+        animation-name: anim-project-preview-out;
+        animation-duration: 300ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 0.8s; }
+        .is-exiting .page--projects .projects-list li:nth-child(9) .project-thumbnail {
+          animation-name: anim-project-thumb-out;
           animation-duration: 300ms;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards;
           animation-delay: 0.8s; }
-          .is-exiting .page--projects .projects-list li:nth-child(9) .project-thumbnail {
-            animation-name: anim-project-thumb-out;
-            animation-duration: 300ms;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            animation-delay: 0.8s; }
-        .is-exiting .page--projects .projects-list li:nth-child(10) {
-          animation-name: anim-project-preview-out;
+      .is-exiting .page--projects .projects-list li:nth-child(10) {
+        animation-name: anim-project-preview-out;
+        animation-duration: 300ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 0.9s; }
+        .is-exiting .page--projects .projects-list li:nth-child(10) .project-thumbnail {
+          animation-name: anim-project-thumb-out;
           animation-duration: 300ms;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards;
           animation-delay: 0.9s; }
-          .is-exiting .page--projects .projects-list li:nth-child(10) .project-thumbnail {
-            animation-name: anim-project-thumb-out;
-            animation-duration: 300ms;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            animation-delay: 0.9s; }
-        .is-exiting .page--projects .projects-list li:nth-child(11) {
-          animation-name: anim-project-preview-out;
+      .is-exiting .page--projects .projects-list li:nth-child(11) {
+        animation-name: anim-project-preview-out;
+        animation-duration: 300ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 1s; }
+        .is-exiting .page--projects .projects-list li:nth-child(11) .project-thumbnail {
+          animation-name: anim-project-thumb-out;
           animation-duration: 300ms;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards;
           animation-delay: 1s; }
-          .is-exiting .page--projects .projects-list li:nth-child(11) .project-thumbnail {
-            animation-name: anim-project-thumb-out;
-            animation-duration: 300ms;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            animation-delay: 1s; }
-        .is-exiting .page--projects .projects-list li:nth-child(12) {
-          animation-name: anim-project-preview-out;
+      .is-exiting .page--projects .projects-list li:nth-child(12) {
+        animation-name: anim-project-preview-out;
+        animation-duration: 300ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 1.1s; }
+        .is-exiting .page--projects .projects-list li:nth-child(12) .project-thumbnail {
+          animation-name: anim-project-thumb-out;
           animation-duration: 300ms;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards;
           animation-delay: 1.1s; }
-          .is-exiting .page--projects .projects-list li:nth-child(12) .project-thumbnail {
-            animation-name: anim-project-thumb-out;
-            animation-duration: 300ms;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            animation-delay: 1.1s; }
-        .is-exiting .page--projects .projects-list li:nth-child(13) {
-          animation-name: anim-project-preview-out;
+      .is-exiting .page--projects .projects-list li:nth-child(13) {
+        animation-name: anim-project-preview-out;
+        animation-duration: 300ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 1.2s; }
+        .is-exiting .page--projects .projects-list li:nth-child(13) .project-thumbnail {
+          animation-name: anim-project-thumb-out;
           animation-duration: 300ms;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards;
           animation-delay: 1.2s; }
-          .is-exiting .page--projects .projects-list li:nth-child(13) .project-thumbnail {
-            animation-name: anim-project-thumb-out;
-            animation-duration: 300ms;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            animation-delay: 1.2s; }
-        .is-exiting .page--projects .projects-list li:nth-child(14) {
-          animation-name: anim-project-preview-out;
+      .is-exiting .page--projects .projects-list li:nth-child(14) {
+        animation-name: anim-project-preview-out;
+        animation-duration: 300ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 1.3s; }
+        .is-exiting .page--projects .projects-list li:nth-child(14) .project-thumbnail {
+          animation-name: anim-project-thumb-out;
           animation-duration: 300ms;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards;
           animation-delay: 1.3s; }
-          .is-exiting .page--projects .projects-list li:nth-child(14) .project-thumbnail {
-            animation-name: anim-project-thumb-out;
-            animation-duration: 300ms;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            animation-delay: 1.3s; }
-        .is-exiting .page--projects .projects-list li:nth-child(15) {
-          animation-name: anim-project-preview-out;
+      .is-exiting .page--projects .projects-list li:nth-child(15) {
+        animation-name: anim-project-preview-out;
+        animation-duration: 300ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 1.4s; }
+        .is-exiting .page--projects .projects-list li:nth-child(15) .project-thumbnail {
+          animation-name: anim-project-thumb-out;
           animation-duration: 300ms;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards;
           animation-delay: 1.4s; }
-          .is-exiting .page--projects .projects-list li:nth-child(15) .project-thumbnail {
-            animation-name: anim-project-thumb-out;
-            animation-duration: 300ms;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            animation-delay: 1.4s; }
-    @media print, screen and (min-width: 33.75em) {
-      .page--projects .projects-list .project-thumbnail {
-        max-width: 25rem; }
-        .page--projects .projects-list .project-thumbnail span {
-          color: #FFFFFF;
-          font-size: 1.75rem; } }
-    @media screen and (min-width: 64em) {
-      .page--projects .projects-list a:active h2,
-      .page--projects .projects-list a:active p,
-      .page--projects .projects-list a:focus h2,
-      .page--projects .projects-list a:focus p,
-      .page--projects .projects-list a:hover h2,
-      .page--projects .projects-list a:hover p {
-        color: inherit; } }
-    @media screen and (min-width: 64em) {
-      .page--projects .projects-list h2 {
-        font-size: 2.5rem;
-        line-height: 1.2; }
-      .page--projects .projects-list p {
-        font-size: 2.125rem;
-        line-height: 1.17647; }
-      .page--projects .projects-list .project-thumbnail {
-        max-width: 50rem; }
-        .page--projects .projects-list .project-thumbnail span {
-          font-size: 3.125rem; } }
-    @media screen and (min-width: 120em) {
-      .page--projects .projects-list h2 {
-        font-size: 3rem;
-        line-height: 1.16667; }
-      .page--projects .projects-list p {
-        font-size: 2.5rem;
-        line-height: 1.2; }
-      .page--projects .projects-list .project-thumbnail {
-        max-width: 62.5rem; }
-        .page--projects .projects-list .project-thumbnail span {
-          font-size: 3.75rem; } }
+  @media print, screen and (min-width: 33.75em) {
+    .page--projects .projects-list .project-thumbnail {
+      max-width: 25rem; }
+      .page--projects .projects-list .project-thumbnail span {
+        color: #FFFFFF;
+        font-size: 1.75rem; } }
+  @media screen and (min-width: 64em) {
+    .page--projects .projects-list a:active h2,
+    .page--projects .projects-list a:active p,
+    .page--projects .projects-list a:focus h2,
+    .page--projects .projects-list a:focus p,
+    .page--projects .projects-list a:hover h2,
+    .page--projects .projects-list a:hover p {
+      color: inherit; } }
+  @media screen and (min-width: 64em) {
+    .page--projects .projects-list h2 {
+      font-size: 2.5rem;
+      line-height: 1.2; }
+    .page--projects .projects-list p {
+      font-size: 2.125rem;
+      line-height: 1.17647; }
+    .page--projects .projects-list .project-thumbnail {
+      max-width: 50rem; }
+      .page--projects .projects-list .project-thumbnail span {
+        font-size: 3.125rem; } }
+  @media screen and (min-width: 120em) {
+    .page--projects .projects-list h2 {
+      font-size: 3rem;
+      line-height: 1.16667; }
+    .page--projects .projects-list p {
+      font-size: 2.5rem;
+      line-height: 1.2; }
+    .page--projects .projects-list .project-thumbnail {
+      max-width: 62.5rem; }
+      .page--projects .projects-list .project-thumbnail span {
+        font-size: 3.75rem; } }
 
 @keyframes detail-hero-area-v1 {
   from {
@@ -2688,7 +2877,7 @@ a {
     background-color: rgba(26, 26, 26, 0.7);
     opacity: 0;
     transition-property: opacity;
-    transition-duration: 200ms;
+    transition-duration: 400ms;
     transition-timing-function: ease-out; }
   .page--detail-v1 .hero-area a:active:before, .page--detail-v1 .hero-area a:focus:before, .page--detail-v1 .hero-area a:hover:before {
     opacity: 0.7; }
@@ -2808,7 +2997,7 @@ a {
           background-color: rgba(26, 26, 26, 0.7);
           opacity: 0;
           transition-property: opacity;
-          transition-duration: 200ms;
+          transition-duration: 400ms;
           transition-timing-function: ease-out; }
       .page--detail-v1 .photo-gallery figcaption {
         position: static !important;
@@ -2825,7 +3014,7 @@ a {
         opacity: 0;
         transform: translateY(0%);
         transition-property: opacity, transform;
-        transition-duration: 200ms;
+        transition-duration: 400ms;
         transition-timing-function: ease-out; }
       .page--detail-v1 .photo-gallery a:active:before, .page--detail-v1 .photo-gallery a:focus:before, .page--detail-v1 .photo-gallery a:hover:before {
         opacity: 0.85; }
