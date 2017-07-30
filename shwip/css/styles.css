@@ -1542,20 +1542,10 @@ a {
     transform: translateY(-100%); } }
 
 @keyframes anim-nav-button-rotate {
-  from, to, 80% {
-    opacity: 1; }
-  90% {
-    opacity: 0.4; }
-  78% {
-    transform: translate3d(0, 0, 0) rotateZ(0deg); }
-  80%, 96% {
-    transform: translate3d(0, 0, 0) rotateZ(-25deg); }
-  82%, 94% {
-    transform: translate3d(0, 0, 0) rotateZ(30deg); }
-  84%, 88%, 92% {
-    transform: translate3d(0, 0, 0) rotateZ(-180deg); }
-  86%, 90% {
-    transform: translate3d(0, 0, 0) rotateZ(180deg); } }
+  from {
+    transform: rotateZ(0deg); }
+  to {
+    transform: rotateZ(360deg); } }
 
 .nav-header {
   position: fixed;
@@ -1620,8 +1610,11 @@ a {
     transition-duration: 400ms;
     transition-timing-function: ease-out; }
     .nav-header .menu-trigger.rotate {
-      animation: anim-nav-button-rotate 5s cubic-bezier(0.84, 0.04, 0.61, 0.95) both;
-      animation-iteration-count: infinite;
+      animation-name: anim-nav-button-rotate;
+      animation-duration: 500ms;
+      animation-timing-function: ease-in-out;
+      animation-direction: normal;
+      animation-fill-mode: none;
       backface-visibility: hidden;
       perspective: 1000px; }
     .nav-header .menu-trigger > span {
@@ -1653,16 +1646,35 @@ a {
       position: relative;
       top: 50%;
       transform: translateY(-50%); }
+    .nav-header .overlay-menu li {
+      text-align: center; }
     .nav-header .overlay-menu a {
-      display: block;
+      position: relative;
+      display: inline-block;
       font-size: 3.125rem;
       line-height: 1;
-      text-align: center;
       opacity: 0;
       transform: translateY(-1rem);
       transition-property: opacity, transform;
       transition-duration: 400ms;
       transition-timing-function: ease-out; }
+      .nav-header .overlay-menu a::before {
+        content: attr(data-value);
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: 0;
+        padding: inherit;
+        color: #FFE300;
+        white-space: nowrap;
+        overflow: hidden;
+        transition-property: max-width;
+        transition-timing-function: linear;
+        transition-duration: 400ms; }
+      .nav-header .overlay-menu a:hover, .nav-header .overlay-menu a:focus {
+        color: inherit; }
+        .nav-header .overlay-menu a:hover::before, .nav-header .overlay-menu a:focus::before {
+          max-width: 100%; }
   .nav-header.menu-showed .overlay-menu {
     opacity: 1;
     transform: translateY(0%);
@@ -1705,8 +1717,31 @@ a {
           float: right; }
         .nav-header .logo-wrapper a,
         .nav-header .quick-menu-wrapper a {
+          position: relative;
           display: inline-block;
           padding: 1.125rem 0; }
+          .nav-header .logo-wrapper a::before,
+          .nav-header .quick-menu-wrapper a::before {
+            content: attr(data-value);
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-width: 0;
+            padding: inherit;
+            color: #FFE300;
+            white-space: nowrap;
+            overflow: hidden;
+            transition-property: max-width;
+            transition-timing-function: linear;
+            transition-duration: 400ms; }
+          .nav-header .logo-wrapper a:hover, .nav-header .logo-wrapper a:focus,
+          .nav-header .quick-menu-wrapper a:hover,
+          .nav-header .quick-menu-wrapper a:focus {
+            color: inherit; }
+            .nav-header .logo-wrapper a:hover::before, .nav-header .logo-wrapper a:focus::before,
+            .nav-header .quick-menu-wrapper a:hover::before,
+            .nav-header .quick-menu-wrapper a:focus::before {
+              max-width: 100%; }
         .nav-header .logo-wrapper img,
         .nav-header .quick-menu-wrapper img {
           height: 1.5rem;
@@ -1740,7 +1775,7 @@ a {
       .nav-header .menu-trigger {
         margin: 0; }
       .nav-header .overlay-menu a {
-        padding: 1.5rem 0;
+        padding: 1.125rem 0;
         font-size: 2.1875rem; } }
   @media screen and (min-width: 87.5em) {
     .nav-header .overlay-menu a {
@@ -1754,14 +1789,14 @@ a {
       .nav-header .quick-menu-wrapper a {
         font-size: 1.375rem; }
       .nav-header .overlay-menu a {
-        padding: 2.25rem 0;
         font-size: 4.6875rem; } }
 
 .icon-hamburger {
   position: relative;
   width: 2.5rem;
   height: 1rem;
-  transition-property: transform;
+  color: #FFFFFF;
+  transition-property: color, transform;
   transition-duration: 400ms;
   transition-timing-function: ease-out;
   transition-duration: 500ms; }
@@ -1771,7 +1806,7 @@ a {
     left: 0;
     width: 100%;
     height: 0.125rem;
-    background-color: #FFFFFF; }
+    background-color: currentColor; }
   .icon-hamburger:before {
     top: 0;
     transition-property: transform, top;
@@ -1789,11 +1824,21 @@ a {
     display: block;
     width: 100%;
     height: 0.125rem;
-    background-color: #FFFFFF;
+    background-color: currentColor;
     transform: translateY(-50%);
     transition-property: opacity;
     transition-duration: 400ms;
     transition-timing-function: ease-out; }
+  .menu-trigger:hover .icon-hamburger {
+    color: #FFE300; }
+    .menu-trigger:hover .icon-hamburger::before {
+      transform: translateY(-60%); }
+    .menu-trigger:hover .icon-hamburger::after {
+      transform: translateY(60%); }
+    .menu-showed .menu-trigger:hover .icon-hamburger::before {
+      transform: translateY(-50%) rotateZ(45deg); }
+    .menu-showed .menu-trigger:hover .icon-hamburger::after {
+      transform: translateY(50%) rotateZ(-45deg); }
   .menu-showed .icon-hamburger {
     transform: rotateZ(180deg); }
     .menu-showed .icon-hamburger:before {
@@ -1803,16 +1848,6 @@ a {
       bottom: 50%;
       transform: translateY(50%) rotateZ(-45deg); }
     .menu-showed .icon-hamburger span {
-      opacity: 0; }
-  .rotate .icon-hamburger {
-    transform: rotateZ(225deg); }
-    .rotate .icon-hamburger:before {
-      top: 50%;
-      transform: translateY(-50%) rotateZ(45deg); }
-    .rotate .icon-hamburger:after {
-      bottom: 50%;
-      transform: translateY(50%) rotateZ(-45deg); }
-    .rotate .icon-hamburger span {
       opacity: 0; }
   @media screen and (min-width: 64.0625em) {
     .icon-hamburger {
@@ -1827,7 +1862,7 @@ footer {
   max-width: 118.75rem;
   margin-right: auto;
   margin-left: auto;
-  padding: 0 1.25rem 0; }
+  padding: 0 1.25rem; }
   footer::before, footer::after {
     display: table;
     content: ' '; }
@@ -1843,8 +1878,27 @@ footer {
     padding: 0.75rem 0;
     text-align: right; }
   footer a {
+    position: relative;
     display: inline-block;
-    padding: 0.75rem 0.375rem; }
+    padding: 0.75rem 0;
+    margin: 0 0.375rem; }
+    footer a::before {
+      content: attr(data-value);
+      position: absolute;
+      top: 0;
+      left: 0;
+      max-width: 0;
+      padding: inherit;
+      color: #FFE300;
+      white-space: nowrap;
+      overflow: hidden;
+      transition-property: max-width;
+      transition-timing-function: linear;
+      transition-duration: 400ms; }
+    footer a:focus, footer a:hover {
+      color: inherit; }
+      footer a:focus::before, footer a:hover::before {
+        max-width: 100%; }
   @media print, screen and (min-width: 46.25em) {
     footer {
       display: block; } }
@@ -1853,7 +1907,7 @@ footer {
       padding-left: 2.5rem;
       padding-right: 2.5rem; }
       footer a {
-        padding: 0.75rem 0.75rem; } }
+        padding: 0.75rem 0; } }
   @media screen and (min-width: 120em) {
     footer {
       padding-left: 5rem;
@@ -1877,6 +1931,11 @@ footer {
     line-height: 1.5rem; }
   .lity .lity-close:hover, .lity .lity-close:focus, .lity .lity-close:active {
     color: #FFE300; }
+
+.pswp__container {
+  transition-property: transform;
+  transition-duration: 400ms;
+  transition-timing-function: ease-out; }
 
 .pswp__button--close {
   width: auto;
@@ -1909,6 +1968,7 @@ footer {
   .pswp__button--arrow--left::before,
   .pswp__button--arrow--right::before {
     content: 'next';
+    position: static;
     display: block;
     width: auto;
     height: auto;
@@ -2329,7 +2389,7 @@ footer {
       z-index: 0;
       opacity: 0;
       animation-name: anim-home-choose;
-      animation-duration: 300ms;
+      animation-duration: 1000ms;
       animation-timing-function: ease-out;
       animation-fill-mode: forwards;
       animation-delay: 4800ms; }
@@ -2668,91 +2728,91 @@ footer {
         overflow: hidden; }
       .page--projects .projects-list .project-preview.show-1 a {
         animation-name: anim-project-preview-in;
-        animation-duration: 600ms;
+        animation-duration: 2000ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         animation-delay: 0.15s; }
       .page--projects .projects-list .project-preview.show-2 a {
         animation-name: anim-project-preview-in;
-        animation-duration: 600ms;
+        animation-duration: 2000ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         animation-delay: 0.3s; }
       .page--projects .projects-list .project-preview.show-3 a {
         animation-name: anim-project-preview-in;
-        animation-duration: 600ms;
+        animation-duration: 2000ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         animation-delay: 0.45s; }
       .page--projects .projects-list .project-preview.show-4 a {
         animation-name: anim-project-preview-in;
-        animation-duration: 600ms;
+        animation-duration: 2000ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         animation-delay: 0.6s; }
       .page--projects .projects-list .project-preview.show-5 a {
         animation-name: anim-project-preview-in;
-        animation-duration: 600ms;
+        animation-duration: 2000ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         animation-delay: 0.75s; }
       .page--projects .projects-list .project-preview.show-6 a {
         animation-name: anim-project-preview-in;
-        animation-duration: 600ms;
+        animation-duration: 2000ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         animation-delay: 0.9s; }
       .page--projects .projects-list .project-preview.show-7 a {
         animation-name: anim-project-preview-in;
-        animation-duration: 600ms;
+        animation-duration: 2000ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         animation-delay: 1.05s; }
       .page--projects .projects-list .project-preview.show-8 a {
         animation-name: anim-project-preview-in;
-        animation-duration: 600ms;
+        animation-duration: 2000ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         animation-delay: 1.2s; }
       .page--projects .projects-list .project-preview.show-9 a {
         animation-name: anim-project-preview-in;
-        animation-duration: 600ms;
+        animation-duration: 2000ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         animation-delay: 1.35s; }
       .page--projects .projects-list .project-preview.show-10 a {
         animation-name: anim-project-preview-in;
-        animation-duration: 600ms;
+        animation-duration: 2000ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         animation-delay: 1.5s; }
       .page--projects .projects-list .project-preview.show-11 a {
         animation-name: anim-project-preview-in;
-        animation-duration: 600ms;
+        animation-duration: 2000ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         animation-delay: 1.65s; }
       .page--projects .projects-list .project-preview.show-12 a {
         animation-name: anim-project-preview-in;
-        animation-duration: 600ms;
+        animation-duration: 2000ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         animation-delay: 1.8s; }
       .page--projects .projects-list .project-preview.show-13 a {
         animation-name: anim-project-preview-in;
-        animation-duration: 600ms;
+        animation-duration: 2000ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         animation-delay: 1.95s; }
       .page--projects .projects-list .project-preview.show-14 a {
         animation-name: anim-project-preview-in;
-        animation-duration: 600ms;
+        animation-duration: 2000ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         animation-delay: 2.1s; }
       .page--projects .projects-list .project-preview.show-15 a {
         animation-name: anim-project-preview-in;
-        animation-duration: 600ms;
+        animation-duration: 2000ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         animation-delay: 2.25s; }
@@ -3063,18 +3123,18 @@ footer {
         .page--projects .projects-list .project-preview:first-child, .page--projects .projects-list .project-preview:nth-child(2) {
           height: calc(16.5rem + 5vh + 7vw); }
           .page--projects .projects-list .project-preview:first-child h2, .page--projects .projects-list .project-preview:nth-child(2) h2 {
-            font-size: 3.5rem;
-            font-size: calc(rem(56) + 2vh); } }
+            font-size: 3.4375rem;
+            font-size: calc(rem(55) + 2vh); } }
     @media screen and (min-width: 120em) {
       .page--projects .projects-list h2 {
-        font-size: 3.5rem;
+        font-size: 3.125rem;
         padding: 1.875rem; }
       .page--projects .projects-list .project-preview {
         height: calc(12rem + 6vh + 5vw); }
         .page--projects .projects-list .project-preview:first-child, .page--projects .projects-list .project-preview:nth-child(2) {
           height: calc(18rem + 5vh + 7vw); }
           .page--projects .projects-list .project-preview:first-child h2, .page--projects .projects-list .project-preview:nth-child(2) h2 {
-            font-size: 4.6875rem;
+            font-size: 4.0625rem;
             padding: 2.5rem; } }
 
 @keyframes detail-hero-area-v1 {
@@ -3525,6 +3585,7 @@ footer {
     max-width: 118.75rem;
     margin-right: auto;
     margin-left: auto;
+    max-width: 62.5rem;
     padding: 0 1.25rem;
     outline: none; }
     .page--detail-v2 .project-description::before, .page--detail-v2 .project-description::after {
@@ -3901,12 +3962,34 @@ footer {
       .page--contact .imgs-row {
         margin-bottom: 6rem; } }
   .page--contact .contact-info {
+    max-width: 87.5rem;
+    margin: 0 auto;
     opacity: 0;
     animation-name: anim-contact-content-in;
     animation-duration: 450ms;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     animation-delay: 200ms; }
+    .page--contact .contact-info a {
+      position: relative;
+      display: inline-block; }
+      .page--contact .contact-info a::before {
+        content: attr(data-value);
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: 0;
+        padding: inherit;
+        color: #FFE300;
+        white-space: nowrap;
+        overflow: hidden;
+        transition-property: max-width;
+        transition-timing-function: linear;
+        transition-duration: 400ms; }
+      .page--contact .contact-info a:focus, .page--contact .contact-info a:hover {
+        color: inherit; }
+        .page--contact .contact-info a:focus::before, .page--contact .contact-info a:hover::before {
+          max-width: 100%; }
     .page--contact .contact-info p {
       display: block;
       margin-bottom: 1.125rem;
@@ -3916,15 +3999,23 @@ footer {
     @media screen and (min-width: 64.0625em) {
       .page--contact .contact-info p {
         margin-bottom: 1.5rem;
-        font-size: 2.25rem; } }
+        font-size: 2.25rem; }
+        .page--contact .contact-info p:first-child {
+          margin-bottom: 7.5rem; }
+        .page--contact .contact-info p.address, .page--contact .contact-info p.contact {
+          font-size: 2rem; } }
     @media screen and (min-width: 87.5em) {
       .page--contact .contact-info p {
         margin-bottom: 3rem;
-        font-size: 2.625rem; } }
+        font-size: 2.625rem; }
+        .page--contact .contact-info p.address, .page--contact .contact-info p.contact {
+          font-size: 2.25rem; } }
     @media screen and (min-width: 120em) {
       .page--contact .contact-info p {
         margin-bottom: 5.25rem;
-        font-size: 3.125rem; } }
+        font-size: 3.125rem; }
+        .page--contact .contact-info p:first-child {
+          margin-bottom: 10.5rem; } }
   .page--contact .legals {
     opacity: 0;
     animation-name: anim-contact-content-in;
@@ -3948,14 +4039,30 @@ footer {
         clear: both; }
     .page--contact .legals li {
       padding: 0 0.75rem; }
+    .page--contact .legals a {
+      position: relative;
+      display: inline-block; }
+      .page--contact .legals a::before {
+        content: attr(data-value);
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: 0;
+        padding: inherit;
+        color: #FFE300;
+        white-space: nowrap;
+        overflow: hidden;
+        transition-property: max-width;
+        transition-timing-function: linear;
+        transition-duration: 400ms; }
+      .page--contact .legals a:focus, .page--contact .legals a:hover {
+        color: inherit; }
+        .page--contact .legals a:focus::before, .page--contact .legals a:hover::before {
+          max-width: 100%; }
     @media screen and (min-width: 64.0625em) {
-      .page--contact .legals a {
-        font-size: 1.125rem; }
       .page--contact .legals ul {
         padding: 1.5rem 0; } }
     @media screen and (min-width: 87.5em) {
-      .page--contact .legals a {
-        font-size: 1.25rem; }
       .page--contact .legals ul {
         padding: 2.25rem 0; } }
     @media screen and (min-width: 120em) {

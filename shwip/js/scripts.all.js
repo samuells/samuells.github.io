@@ -662,22 +662,22 @@ var inactivityTime = function() {
   document.onmousemove = resetTimer;
 
   function rotateHamburger() {
-    $('.menu-wrapper').addClass('rotate');
+    $('.menu-trigger').addClass('rotate');
     setTimeout(function(){
-      $('.menu-wrapper').removeClass('rotate');
+      $('.menu-trigger').removeClass('rotate');
     }, 1400)
   }
 
   function resetTimer() {
     clearTimeout(t);
-    $('.menu-wrapper').removeClass('rotate');
+    $('.menu-trigger').removeClass('rotate');
     t = setTimeout(resetInterval, 2500)
   }
 
   function resetInterval() {
     clearInterval(interval);
-    $('.menu-wrapper').removeClass('rotate');
-    t = setInterval(rotateHamburger, 6000)
+    $('.menu-trigger').removeClass('rotate');
+    t = setInterval(rotateHamburger, 4000)
   }
 };
 
@@ -691,7 +691,8 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
   // parse slide data (url, title, size ...) from DOM elements
   // (children of gallerySelector)
   var parseThumbnailElements = function(el) {
-    var thumbElements = el.childNodes,
+    // var thumbElements = el.childNodes,
+    var thumbElements = el.querySelectorAll('figure'),
       numNodes = thumbElements.length,
       items = [],
       figureEl,
@@ -756,8 +757,9 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
     // find index of clicked item by looping through all child nodes
     // alternatively, you may define index via data- attribute
-    var clickedGallery = clickedListItem.parentNode,
+    var clickedGallery = clickedListItem.parentNode.parentNode,
       childNodes = clickedListItem.parentNode.childNodes,
+      childNodes = clickedGallery.querySelectorAll('figure'),
       numChildNodes = childNodes.length,
       nodeIndex = 0,
       index;
