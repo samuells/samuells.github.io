@@ -12,6 +12,13 @@
   font-weight: 400;
   font-style: normal; }
 
+@font-face {
+  font-family: "Brown-Bold";
+  src: url("../fonts/lineto-brown-bold.eot");
+  src: url("../fonts/lineto-brown-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/lineto-brown-bold.woff2") format("woff2"), url("../fonts/lineto-brown-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal; }
+
 /*! normalize-scss | MIT/GPLv2 License | bit.ly/normalize-scss */
 /* Document
        ========================================================================== */
@@ -1971,6 +1978,7 @@ footer {
   content: 'back'; }
 
 .page--detail-v2 .social-bar,
+.page--contact .social-bar,
 .page--projects .social-bar {
   position: fixed;
   left: 0;
@@ -1987,6 +1995,7 @@ footer {
   transition-duration: 600ms;
   transition-timing-function: ease-out, ease-out, step-end; }
   .menu-showed + .page--detail-v2 .social-bar, .menu-showed +
+  .page--contact .social-bar, .menu-showed +
   .page--projects .social-bar {
     opacity: 1;
     transform: translateY(0%);
@@ -1994,42 +2003,53 @@ footer {
     transition-delay: 200ms;
     transition-timing-function: ease-out, ease-out, step-start; }
   .page--detail-v2 .social-bar nav,
+  .page--contact .social-bar nav,
   .page--projects .social-bar nav {
     max-width: 118.75rem;
     margin-right: auto;
     margin-left: auto; }
     .page--detail-v2 .social-bar nav::before, .page--detail-v2 .social-bar nav::after,
+    .page--contact .social-bar nav::before,
+    .page--contact .social-bar nav::after,
     .page--projects .social-bar nav::before,
     .page--projects .social-bar nav::after {
       display: table;
       content: ' '; }
     .page--detail-v2 .social-bar nav::after,
+    .page--contact .social-bar nav::after,
     .page--projects .social-bar nav::after {
       clear: both; }
     @media screen and (min-width: 120em) {
       .page--detail-v2 .social-bar nav,
+      .page--contact .social-bar nav,
       .page--projects .social-bar nav {
         max-width: 98.95833%; } }
     @media screen and (min-width: 120em) {
       .page--detail-v2 .social-bar nav,
+      .page--contact .social-bar nav,
       .page--projects .social-bar nav {
         max-width: 118.75rem; } }
   .page--detail-v2 .social-bar ul,
+  .page--contact .social-bar ul,
   .page--projects .social-bar ul {
     list-style: none;
     padding: 0;
     margin: 0;
     text-align: center; }
     .page--detail-v2 .social-bar ul > li,
+    .page--contact .social-bar ul > li,
     .page--projects .social-bar ul > li {
       display: inline-block; }
   .page--detail-v2 .social-bar a,
+  .page--contact .social-bar a,
   .page--projects .social-bar a {
     display: block; }
     .page--detail-v2 .social-bar a:after,
+    .page--contact .social-bar a:after,
     .page--projects .social-bar a:after {
       padding: 0.625rem; }
     .page--detail-v2 .social-bar a.facebook:after,
+    .page--contact .social-bar a.facebook:after,
     .page--projects .social-bar a.facebook:after {
       display: inline-block;
       font-family: "iconfont";
@@ -2045,6 +2065,7 @@ footer {
       speak: none;
       content: "\E001"; }
     .page--detail-v2 .social-bar a.vimeo:after,
+    .page--contact .social-bar a.vimeo:after,
     .page--projects .social-bar a.vimeo:after {
       display: inline-block;
       font-family: "iconfont";
@@ -2060,6 +2081,7 @@ footer {
       speak: none;
       content: "\E003"; }
     .page--detail-v2 .social-bar a.instagram:after,
+    .page--contact .social-bar a.instagram:after,
     .page--projects .social-bar a.instagram:after {
       display: inline-block;
       font-family: "iconfont";
@@ -2075,6 +2097,7 @@ footer {
       speak: none;
       content: "\E002"; }
     .page--detail-v2 .social-bar a span,
+    .page--contact .social-bar a span,
     .page--projects .social-bar a span {
       position: absolute !important;
       width: 1px;
@@ -2083,9 +2106,11 @@ footer {
       clip: rect(0, 0, 0, 0); }
   @media screen and (min-width: 64.0625em) {
     .page--detail-v2 .social-bar,
+    .page--contact .social-bar,
     .page--projects .social-bar {
       padding-bottom: 2.25rem; }
       .page--detail-v2 .social-bar a:after,
+      .page--contact .social-bar a:after,
       .page--projects .social-bar a:after {
         font-size: 1.375rem; } }
 
@@ -2149,7 +2174,6 @@ footer {
     opacity: 0; } }
 
 @keyframes anim-social-bar {
-  80%,
   from {
     opacity: 0;
     transform: translateY(100%); }
@@ -2443,7 +2467,7 @@ footer {
       width: 100%;
       height: 100%;
       background-color: #FFFFFF;
-      transform: translateX(-100%);
+      transform: translateX(-101%);
       transition-property: transform; }
     .home-offer .label::after {
       content: '';
@@ -2454,7 +2478,7 @@ footer {
       width: 100%;
       height: 100%;
       background-color: #FFFFFF;
-      transform: translateX(-100%);
+      transform: translateX(-101%);
       transition-property: transform;
       transition-duration: 400ms;
       transition-timing-function: ease-out; }
@@ -2681,10 +2705,10 @@ footer {
   opacity: 0;
   z-index: 10;
   animation-name: anim-social-bar;
-  animation-duration: 3s;
+  animation-duration: 0.6s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
-  animation-delay: 0s; }
+  animation-delay: 2.4s; }
   .is-exiting .page--home .social-bar {
     animation-name: anim-social-bar-out;
     animation-duration: 500ms;
@@ -2770,6 +2794,42 @@ footer {
       padding-bottom: 2.25rem; }
       .page--home .social-bar a:after {
         font-size: 1.375rem; } }
+
+.page--manifest .home-offer li:nth-child(1) .label::after {
+  animation-delay: 0.5s; }
+
+.page--manifest .home-offer li:nth-child(1) .label .value {
+  animation-delay: 0.5s; }
+
+.page--manifest .home-offer li:nth-child(2) .label::after {
+  animation-delay: 0.75s; }
+
+.page--manifest .home-offer li:nth-child(2) .label .value {
+  animation-delay: 0.75s; }
+
+.page--manifest .home-offer li:nth-child(3) .label::after {
+  animation-delay: 1s; }
+
+.page--manifest .home-offer li:nth-child(3) .label .value {
+  animation-delay: 1s; }
+
+.page--manifest .home-offer li:nth-child(4) .label::after {
+  animation-delay: 1.25s; }
+
+.page--manifest .home-offer li:nth-child(4) .label .value {
+  animation-delay: 1.25s; }
+
+.page--manifest .home-offer li:nth-child(5) .label::after {
+  animation-delay: 1.5s; }
+
+.page--manifest .home-offer li:nth-child(5) .label .value {
+  animation-delay: 1.5s; }
+
+.page--manifest .choose {
+  animation-delay: 2500ms; }
+
+.page--manifest .social-bar {
+  animation-delay: 0s; }
 
 @keyframes anim-project-preview-before-in {
   from {
@@ -3097,9 +3157,6 @@ footer {
             height: calc(15rem + 5vh + 7vw); }
             .page--projects .projects-list .project-preview:first-child:last-child:not(:first-child), .page--projects .projects-list .project-preview:nth-child(2):last-child:not(:first-child) {
               float: right; }
-            .page--projects .projects-list .project-preview:first-child h2, .page--projects .projects-list .project-preview:nth-child(2) h2 {
-              font-size: 3rem;
-              padding: 1.875rem; }
           .page--projects .projects-list .project-preview:nth-child(1) a::before,
           .page--projects .projects-list .project-preview:nth-child(1) a h2 {
             animation-name: anim-project-preview-content-hover-in;
@@ -3221,27 +3278,15 @@ footer {
             animation-delay: 6.75s;
             animation-timing-function: step-end; } }
     @media screen and (min-width: 87.5em) {
-      .page--projects .projects-list h2 {
-        font-size: 2.625rem;
-        font-size: calc(rem(42) + 2vh); }
       .page--projects .projects-list .project-preview {
         height: calc(10.5rem + 6vh + 5vw); }
         .page--projects .projects-list .project-preview:first-child, .page--projects .projects-list .project-preview:nth-child(2) {
-          height: calc(16.5rem + 5vh + 7vw); }
-          .page--projects .projects-list .project-preview:first-child h2, .page--projects .projects-list .project-preview:nth-child(2) h2 {
-            font-size: 3.4375rem;
-            font-size: calc(rem(55) + 2vh); } }
+          height: calc(16.5rem + 5vh + 7vw); } }
     @media screen and (min-width: 120em) {
-      .page--projects .projects-list h2 {
-        font-size: 3.125rem;
-        padding: 1.875rem; }
       .page--projects .projects-list .project-preview {
         height: calc(12rem + 6vh + 5vw); }
         .page--projects .projects-list .project-preview:first-child, .page--projects .projects-list .project-preview:nth-child(2) {
-          height: calc(18rem + 5vh + 7vw); }
-          .page--projects .projects-list .project-preview:first-child h2, .page--projects .projects-list .project-preview:nth-child(2) h2 {
-            font-size: 4.0625rem;
-            padding: 2.5rem; } }
+          height: calc(18rem + 5vh + 7vw); } }
 
 @keyframes detail-hero-area-v1 {
   from {
@@ -4031,6 +4076,11 @@ footer {
       max-width: 118.75rem; } }
   @media screen and (min-width: 64.0625em) {
     .page--contact {
+      display: flex;
+      flex-direction: column;
+      height: 50rem;
+      height: 100vh;
+      min-height: 43.75rem;
       padding: 6rem 2.5rem 0; } }
   @media screen and (min-width: 120em) {
     .page--contact {
@@ -4083,7 +4133,6 @@ footer {
         display: block; }
     @media screen and (min-width: 64.0625em) {
       .page--contact .imgs-row {
-        padding: 1.5rem 0;
         margin-left: -0.9375rem;
         margin-right: -0.9375rem; }
         .page--contact .imgs-row .img-column {
@@ -4096,13 +4145,14 @@ footer {
             float: right; } }
     @media screen and (min-width: 64.0625em) {
       .page--contact .imgs-row {
-        margin-bottom: 3rem; } }
+        margin-bottom: 0.75rem; } }
     @media screen and (min-width: 87.5em) {
       .page--contact .imgs-row {
-        margin-bottom: 4.5rem; } }
+        margin-bottom: 2.25rem; } }
     @media screen and (min-width: 120em) {
       .page--contact .imgs-row {
-        margin-bottom: 6rem; } }
+        margin-bottom: 3rem; } }
+  .page--contact .contact-details,
   .page--contact .contact-info {
     max-width: 87.5rem;
     margin: 0 auto;
@@ -4112,12 +4162,15 @@ footer {
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     animation-delay: 200ms; }
-    .page--contact .contact-info p:first-child {
+    .page--contact .contact-details .description,
+    .page--contact .contact-info .description {
       font-weight: 400; }
+    .page--contact .contact-details a,
     .page--contact .contact-info a {
       position: relative;
       display: inline-block;
       font-weight: 400; }
+      .page--contact .contact-details a::before,
       .page--contact .contact-info a::before {
         content: attr(data-value);
         position: absolute;
@@ -4131,10 +4184,15 @@ footer {
         transition-property: max-width;
         transition-timing-function: linear;
         transition-duration: 400ms; }
-      .page--contact .contact-info a:focus, .page--contact .contact-info a:hover {
+      .page--contact .contact-details a:focus, .page--contact .contact-details a:hover,
+      .page--contact .contact-info a:focus,
+      .page--contact .contact-info a:hover {
         color: inherit; }
-        .page--contact .contact-info a:focus::before, .page--contact .contact-info a:hover::before {
+        .page--contact .contact-details a:focus::before, .page--contact .contact-details a:hover::before,
+        .page--contact .contact-info a:focus::before,
+        .page--contact .contact-info a:hover::before {
           max-width: 100%; }
+    .page--contact .contact-details p,
     .page--contact .contact-info p {
       display: block;
       margin-bottom: 1.125rem;
@@ -4142,25 +4200,64 @@ footer {
       line-height: 1.2;
       text-align: center; }
     @media screen and (min-width: 64.0625em) {
+      .page--contact .contact-details p,
       .page--contact .contact-info p {
         margin-bottom: 1.5rem;
         font-size: 2.25rem; }
-        .page--contact .contact-info p:first-child {
-          margin-bottom: 7.5rem; }
-        .page--contact .contact-info p.address, .page--contact .contact-info p.contact {
-          font-size: 2rem; } }
+        .page--contact .contact-details p.desription,
+        .page--contact .contact-info p.desription {
+          margin-bottom: 3.75rem;
+          margin-bottom: 7.25vh; }
+        .page--contact .contact-details p.address, .page--contact .contact-details p.contact,
+        .page--contact .contact-info p.address,
+        .page--contact .contact-info p.contact {
+          font-size: 2rem;
+          margin-bottom: 0 !important; } }
     @media screen and (min-width: 87.5em) {
+      .page--contact .contact-details p,
       .page--contact .contact-info p {
         margin-bottom: 3rem;
         font-size: 2.625rem; }
-        .page--contact .contact-info p.address, .page--contact .contact-info p.contact {
+        .page--contact .contact-details p.address, .page--contact .contact-details p.contact,
+        .page--contact .contact-info p.address,
+        .page--contact .contact-info p.contact {
           font-size: 2.25rem; } }
     @media screen and (min-width: 120em) {
+      .page--contact .contact-details p,
       .page--contact .contact-info p {
         margin-bottom: 5.25rem;
         font-size: 3.125rem; }
-        .page--contact .contact-info p:first-child {
+        .page--contact .contact-details p.desription,
+        .page--contact .contact-info p.desription {
           margin-bottom: 10.5rem; } }
+  .page--contact .contact-details {
+    width: 100%; }
+    .page--contact .contact-details ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%; }
+      .page--contact .contact-details ul > li {
+        display: inline-block; }
+    .page--contact .contact-details li {
+      flex-basis: 100%;
+      flex-grow: 1; }
+    @media screen and (min-width: 64.0625em) {
+      .page--contact .contact-details {
+        display: flex;
+        align-self: center;
+        align-items: center;
+        flex-grow: 1; }
+        .page--contact .contact-details li {
+          flex-basis: 49%; }
+          .page--contact .contact-details li:nth-child(odd) p {
+            padding-right: 2.5rem;
+            text-align: right; }
+          .page--contact .contact-details li:nth-child(even) p {
+            padding-left: 2.5rem;
+            text-align: left; } }
   .page--contact .legals {
     opacity: 0;
     animation-name: anim-contact-content-in;
@@ -4172,16 +4269,17 @@ footer {
       list-style: none;
       padding: 0;
       margin: 0;
-      display: block;
-      padding: 0.75rem 0;
-      text-align: center; }
+      display: flex;
+      width: 100%; }
       .page--contact .legals ul > li {
         display: inline-block; }
-      .page--contact .legals ul::before, .page--contact .legals ul::after {
-        display: table;
-        content: ' '; }
-      .page--contact .legals ul::after {
-        clear: both; }
+      .page--contact .legals ul li {
+        flex-basis: 49%;
+        flex-grow: 1; }
+        .page--contact .legals ul li:nth-child(odd) {
+          text-align: right; }
+        .page--contact .legals ul li:nth-child(even) {
+          text-align: left; }
     .page--contact .legals li {
       padding: 0 0.75rem; }
     .page--contact .legals a {
@@ -4206,7 +4304,9 @@ footer {
           max-width: 100%; }
     @media screen and (min-width: 64.0625em) {
       .page--contact .legals ul {
-        padding: 1.5rem 0; } }
+        padding: 1.5rem 0; }
+        .page--contact .legals ul li {
+          padding: 0 2.5rem; } }
     @media screen and (min-width: 87.5em) {
       .page--contact .legals ul {
         padding: 2.25rem 0; } }
