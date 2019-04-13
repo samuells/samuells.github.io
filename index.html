@@ -106,7 +106,11 @@
 <body>
   <div class="wrapper">
     <div class="portrait">
-      <img src="images/samuel-with-mac.webp" alt="Portrait of Samuel Snopko">
+      <picture>
+        <source srcset="images/samuel-with-mac.webp" type="image/webp" media="(min-width: 769px)">
+        <source srcset="images/samuel-with-mac@1x.jpg" type="image/jpeg" media="(max-width: 768px)"> 
+        <img src="images/samuel-with-mac@2x.jpg" alt="Portrait of Samuel Snopko">
+      </picture>
     </div>
     <h1>Samuel Snopko</h1>
     <p>
