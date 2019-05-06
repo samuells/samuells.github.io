@@ -32,7 +32,7 @@
     min-height: 100%;
     padding-top: 10vh;
     padding-bottom: 5vh;
-    border: 10px solid #88170B;
+    border: 20px solid #88170B;
   }
 
   .portrait {
@@ -104,8 +104,73 @@
     width: 95%;
     height: 70%;
   }
+
+  @keyframes intro-lscreen {
+    from {
+      border-width: 0px;
+    }
+    50% {
+      border-width: 20px;
+      background-color: #b22222;
+    }
+    to {
+      border-width: 20px;
+      background-color: rgba(0,0,0,0);
+    }
+  }
+
+  .loading-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-color: #b22222;
+    border-width: 0;
+    z-index: 1;
+    animation-name: intro-lscreen;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: 1500ms;
+    animation-delay: 1500ms;
+  }
+
+  @keyframes intro-logo {
+    from {
+      opacity: 0;
+      transform: translate3d(-50%, -35%, 0);
+    }
+    15% {
+      opacity: 1;
+      transform: translate3d(-50%, -50%, 0);
+    }
+    85% {
+      opacity: 1;
+      transform: translate3d(-50%, -50%, 0);
+    }
+    to {
+      opacity: 0;
+      transform: translate3d(-50%, -65%, 0);
+    }
+  }
+
+  .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    opacity: 0;
+    animation-name: intro-logo;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: 1800ms;
+    animation-delay: 200ms;
+    animation-timing-function: cubic-bezier(.08,.46,.9,.52);
+  }
 </style>
 <body>
+  <div class="wrapper loading-screen">
+    <div class="logo"><h1>snpk/></h1></div>
+  </div>
   <div class="wrapper">
     <div class="portrait">
       <picture>
@@ -116,12 +181,12 @@
     </div>
     <h1>Samuel Snopko</h1>
     <p>
-      Creative <strong>FrontEnd Knight</strong> & <strong>DesignOps</strong> & <strong>Speaker</strong> with a passion for the JAM Stack and the beautiful web. Co-creator of the <a href="https://www.wearewondrous.com/digital-experience-meetup" target="_blank"><span>DX Meetup Basel</span></a> and co-organizer of the <a href="http://meetu.ps/c/2LPh4/plJzF/f" target="_blank"><span>Frontend Meetup Freiburg</span></a>. During days works at <a href="https://www.wearewondrous.com" target="_blank"><span>WONDROUS LTD</span></a> and in the night on the side projects and talks. Excited about Design Systems ✱ Animations✱ Workflows ✱ Sass ✱ Speaking 💚 VueJS 💚 NuxtJS ✱ Storyblok CMS ✱ 🍻🍻🍻
+      Creative <strong>FrontEnd Knight</strong> & <strong>DesignOps</strong> & <strong>Speaker</strong> with a passion for the JAM Stack and the beautiful web. Co-creator of the <a href="https://www.wearewondrous.com/digital-experience-meetup" target="_blank"><span>DX Meetup Basel</span></a> and co-organizer of the <a href="http://meetu.ps/c/2LPh4/plJzF/f" target="_blank"><span>Frontend Meetup Freiburg</span></a>. During days works at <a href="https://www.wearewondrous.com" target="_blank"><span>WONDROUS LTD</span></a> and in the night on the side projects and talks. Excited about Design Systems ✱ Animations ✱ Workflows ✱ Sass ✱ Speaking 💚 VueJS 💚 NuxtJS ✱ Storyblok CMS ✱ 🍻🍻🍻
     </p>
     <p>
       Check my <a href="https://www.linkedin.com/in/samuelsnopko" target="_blank"><span>LinkedIn profile</span></a> for more info about me and the projects I've done. Don't miss my next tweet about web on Twitter under <a href="https://www.twitter.com/samuelsnopko" target="_blank"><span>@SamuelSnopko</span></a>. Btw I am always happy to give a tech talk for meetups. So <strong>contact me</strong> on twitter/linkedin.
     </p>
-    <p>PS: This is only <strong>temporary page</strong>. New one is under construction with <a href="https://nuxtjs.org" target="_blank"><span>NuxtJS</span></a>. Stay tunned on twitter! 😜</p>
+    <p>PS: This is only <strong>temporary page</strong>. New one is under construction with <a href="https://nuxtjs.org" target="_blank"><span>NuxtJS</span></a>. Stay tunned on twitter & check my recent project <a href="https://advertorial.sueddeutsche.de/adobe/" target="_blank"><span>Schrift Bewegt</span></a> or more on <a href="https://www.linkedin.com/in/samuelsnopko" target="_blank"><span>LinkedIn</span></a>! 😜</p>
   </div>
 </body>
 <script>
