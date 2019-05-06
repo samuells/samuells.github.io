@@ -113,9 +113,15 @@
       border-width: 20px;
       background-color: #b22222;
     }
+    99% {
+      border-width: 20px;
+      background-color: rgba(0,0,0,0);
+      z-index: 1;
+    }
     to {
       border-width: 20px;
       background-color: rgba(0,0,0,0);
+      z-index: -1;
     }
   }
 
@@ -136,6 +142,7 @@
 
   @keyframes intro-logo {
     from {
+      z-index: 1;
       opacity: 0;
       transform: translate3d(-50%, -35%, 0);
     }
@@ -186,7 +193,7 @@
     <p>
       Check my <a href="https://www.linkedin.com/in/samuelsnopko" target="_blank"><span>LinkedIn profile</span></a> for more info about me and the projects I've done. Don't miss my next tweet about web on Twitter under <a href="https://www.twitter.com/samuelsnopko" target="_blank"><span>@SamuelSnopko</span></a>. Btw I am always happy to give a tech talk for meetups. So <strong>contact me</strong> on twitter/linkedin.
     </p>
-    <p>PS: This is only <strong>temporary page</strong>. New one is under construction with <a href="https://nuxtjs.org" target="_blank"><span>NuxtJS</span></a>. Stay tunned on twitter & check my recent project <a href="https://advertorial.sueddeutsche.de/adobe/" target="_blank"><span>Schrift Bewegt</span></a> or more on <a href="https://www.linkedin.com/in/samuelsnopko" target="_blank"><span>LinkedIn</span></a>! 😜</p>
+    <p>PS: This is only <strong>temporary page</strong>. New one is under construction with <a href="https://nuxtjs.org" target="_blank"><span>NuxtJS</span></a>. Stay tunned on <a href="https://www.twitter.com/samuelsnopko" target="_blank"><span>Twitter</span></a> & check my recent project <a href="https://advertorial.sueddeutsche.de/adobe/" target="_blank"><span>Schrift Bewegt</span></a> or more on <a href="https://www.linkedin.com/in/samuelsnopko" target="_blank"><span>LinkedIn</span></a>! 😜</p>
   </div>
 </body>
 <script>
