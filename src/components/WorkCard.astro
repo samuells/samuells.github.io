@@ -1,0 +1,195 @@
+---
+export interface WorkItem {
+  title: string;
+  description: string;
+  href: string;
+  tags?: string[];
+  year?: string | number;
+  role?: string;
+  isExternal?: boolean;
+}
+
+interface Props extends WorkItem {}
+
+const {
+  title,
+  description,
+  href,
+  tags = [],
+  year,
+  role,
+  isExternal = false,
+} = Astro.props;
+
+const externalProps = isExternal
+  ? { target: '_blank', rel: 'noopener noreferrer' }
+  : {};
+---
+<article class="work-card">
+  <a
+    class="work-card-link"
+    href={href}
+    aria-label={`${title}${role ? ` — ${role}` : ''}`}
+    {...externalProps}
+  >
+    <div class="work-card-meta" aria-hidden="true">
+      {year && <span class="work-card-year">{year}</span>}
+      {role && <span class="work-card-role">{role}</span>}
+    </div>
+
+    <div class="work-card-body">
+      <h3 class="work-card-title">{title}</h3>
+      <p class="work-card-desc">{description}</p>
+
+      {tags.length > 0 && (
+        <ul class="work-card-tags" role="list" aria-label="Tags">
+          {tags.map(tag => <li class="work-card-tag">{tag}</li>)}
+        </ul>
+      )}
+    </div>
+
+    <span class="work-card-arrow" aria-hidden="true">
+      {isExternal ? '↗' : '→'}
+    </span>
+  </a>
+</article>
+
+<style>
+  .work-card {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .work-card-link {
+    display: grid;
+    grid-template-columns: 100px 1fr 28px;
+    gap: 28px;
+    align-items: start;
+    padding-block: 32px;
+    padding-inline: 16px;
+    margin-inline: -16px;
+    color: inherit;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: background var(--dur-base) var(--ease-out);
+  }
+
+  .work-card-link:hover {
+    background: var(--color-cream-100);
+  }
+  .work-card-link:hover .work-card-title {
+    color: var(--color-firebrick);
+  }
+  .work-card-link:hover .work-card-arrow {
+    transform: translate(3px, -3px);
+    color: var(--color-firebrick);
+  }
+
+  .work-card-link:focus-visible {
+    outline: 2px solid var(--color-firebrick);
+    outline-offset: 4px;
+  }
+
+  .work-card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 5px;
+  }
+
+  .work-card-year {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-fg-subtle);
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  .work-card-role {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-firebrick);
+    line-height: 1.4;
+  }
+
+  .work-card-title {
+    font-family: var(--font-sans);
+    font-weight: var(--weight-bold);
+    font-size: var(--text-2xl);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-ink-900);
+    margin-bottom: 10px;
+    transition: color var(--dur-base) var(--ease-out);
+  }
+
+  .work-card-desc {
+    font-family: var(--font-serif);
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-fg-muted);
+    max-width: 52ch;
+    letter-spacing: -0.005em;
+  }
+
+  .work-card-tags {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .work-card-tag {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-fg-muted);
+    background: var(--color-cream-100);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    padding: 3px 10px;
+  }
+
+  .work-card-arrow {
+    font-size: var(--text-lg);
+    color: var(--color-fg-subtle);
+    line-height: 1;
+    padding-top: 6px;
+    transition:
+      transform var(--dur-base) var(--ease-out),
+      color var(--dur-base) var(--ease-out);
+  }
+
+  /* Mobile: collapse meta into header row */
+  @media (max-width: 640px) {
+    .work-card-link {
+      grid-template-columns: 1fr 24px;
+      grid-template-rows: auto auto;
+      gap: 12px 16px;
+    }
+    .work-card-meta {
+      grid-column: 1;
+      grid-row: 1;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding-top: 0;
+    }
+    .work-card-body {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .work-card-arrow {
+      grid-column: 2;
+      grid-row: 1;
+      padding-top: 0;
+    }
+    .work-card-title { font-size: var(--text-xl); }
+  }
+</style>

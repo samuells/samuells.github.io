@@ -1,0 +1,434 @@
+---
+import BrandMark from './BrandMark.astro';
+
+interface Props {
+  currentPage?: string;
+}
+const { currentPage = '' } = Astro.props;
+
+const links = [
+  { href: '/work', label: 'My activities and work', id: 'work' },
+  { href: '/manifesto', label: 'Manifesto', id: 'manifesto' },
+  { href: '/writing', label: 'Writing', id: 'writing' },
+  { href: '/about', label: 'About', id: 'about' },
+];
+---
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-nav" role="banner">
+  <div class="nav-inner">
+    <BrandMark />
+
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <ul class="nav-list" role="list">
+        {links.map(({ href, label, id }) => (
+          <li>
+            <a
+              href={href}
+              class="nav-link"
+              aria-current={currentPage === id ? 'page' : undefined}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <span class="availability" aria-label="Currently open to new roles">
+        <span class="dot" aria-hidden="true"></span>
+        Open to roles
+      </span>
+      <a href="/contact" class="contact-btn">Contact me</a>
+    </div>
+
+    <div class="mobile-actions">
+      <a href="/contact" class="contact-btn">Contact me</a>
+      <button
+        class="menu-btn"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-overlay"
+      >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div
+  class="mobile-overlay"
+  id="mobile-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Navigation menu"
+  hidden
+>
+  <button class="overlay-close" aria-label="Close navigation menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+
+  <nav aria-label="Mobile navigation">
+    <ul class="overlay-nav-list" role="list">
+      {links.map(({ href, label, id }) => (
+        <li>
+          <a
+            href={href}
+            class="overlay-nav-link"
+            aria-current={currentPage === id ? 'page' : undefined}
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</div>
+
+<style>
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 16px;
+    z-index: 200;
+    font-family: var(--font-sans);
+    font-weight: var(--weight-bold);
+    font-size: var(--text-sm);
+    color: var(--color-cream-50);
+    background: var(--color-firebrick);
+    padding: 10px 20px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: top var(--dur-fast) var(--ease-out);
+  }
+  .skip-link:focus {
+    top: 16px;
+  }
+
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(251, 245, 240, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav-inner {
+    max-width: 1320px;
+    margin-inline: auto;
+    padding-inline: var(--container-pad);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  /* ── Desktop nav ── */
+  .primary-nav {
+    flex: 1;
+  }
+
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+  }
+
+  .nav-link {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-weight: var(--weight-semibold);
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--color-fg-muted);
+    padding: 8px 14px;
+    border-radius: var(--radius-md);
+    transition:
+      color var(--dur-base) var(--ease-out),
+      background var(--dur-base) var(--ease-out);
+  }
+
+  .nav-link:hover {
+    color: var(--color-fg);
+    background: var(--color-cream-100);
+  }
+
+  .nav-link[aria-current="page"] {
+    color: var(--color-firebrick);
+    background: var(--color-firebrick-50);
+  }
+
+  .nav-link:focus-visible {
+    outline: 2px solid var(--color-firebrick);
+    outline-offset: 2px;
+  }
+
+  /* ── Desktop actions (availability + contact) ── */
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+
+  .availability {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: var(--color-fg-muted);
+    white-space: nowrap;
+  }
+
+  .dot {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #4a9b5f;
+    flex-shrink: 0;
+  }
+
+  .dot::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: #4a9b5f;
+    opacity: 0;
+    animation: dot-pulse 2.4s ease-out infinite;
+  }
+
+  @keyframes dot-pulse {
+    0%   { transform: scale(0.7); opacity: 0.5; }
+    60%  { transform: scale(1.8); opacity: 0; }
+    100% { transform: scale(0.7); opacity: 0; }
+  }
+
+  /* ── Shared contact button ── */
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-sans);
+    font-weight: var(--weight-bold);
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: #faf6f2;
+    background: #1a1612;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition:
+      background var(--dur-base) var(--ease-out),
+      transform var(--dur-fast) var(--ease-out);
+    white-space: nowrap;
+  }
+
+  .contact-btn:hover {
+    background: #2e2820;
+    transform: translateY(-1px);
+  }
+
+  .contact-btn:focus-visible {
+    outline: 2px solid var(--color-firebrick);
+    outline-offset: 2px;
+  }
+
+  /* ── Mobile actions (contact + hamburger) ── */
+  .mobile-actions {
+    display: none;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: background var(--dur-base) var(--ease-out);
+  }
+
+  .menu-btn:hover {
+    background: var(--color-cream-100);
+  }
+
+  .menu-btn:focus-visible {
+    outline: 2px solid var(--color-firebrick);
+    outline-offset: 2px;
+  }
+
+  .bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-fg);
+    border-radius: 2px;
+    transition: transform var(--dur-base) var(--ease-out), opacity var(--dur-base) var(--ease-out);
+  }
+
+  /* ── Mobile overlay ── */
+  .mobile-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: #faf6f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition:
+      opacity var(--dur-base) var(--ease-out),
+      transform var(--dur-base) var(--ease-out);
+    pointer-events: none;
+  }
+
+  .mobile-overlay:not([hidden]) {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* hidden attribute wins over display from above — override so transition works */
+  .mobile-overlay[hidden] {
+    display: flex !important;
+    visibility: hidden;
+  }
+
+  .overlay-close {
+    position: absolute;
+    top: 16px;
+    right: var(--container-pad, 20px);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-fg);
+    border-radius: var(--radius-md);
+    transition: background var(--dur-base) var(--ease-out);
+  }
+
+  .overlay-close:hover {
+    background: var(--color-cream-100);
+  }
+
+  .overlay-close:focus-visible {
+    outline: 2px solid var(--color-firebrick);
+    outline-offset: 2px;
+  }
+
+  .overlay-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .overlay-nav-link {
+    display: block;
+    font-family: var(--font-sans);
+    font-weight: var(--weight-bold);
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--color-fg-muted);
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition:
+      color var(--dur-base) var(--ease-out),
+      background var(--dur-base) var(--ease-out);
+  }
+
+  .overlay-nav-link:hover {
+    color: var(--color-fg);
+    background: var(--color-cream-100);
+  }
+
+  .overlay-nav-link[aria-current="page"] {
+    color: var(--color-firebrick);
+  }
+
+  .overlay-nav-link:focus-visible {
+    outline: 2px solid var(--color-firebrick);
+    outline-offset: 2px;
+  }
+
+  /* ── Breakpoints ── */
+  @media (max-width: 860px) {
+    .primary-nav,
+    .nav-actions {
+      display: none;
+    }
+
+    .mobile-actions {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const menuBtn = document.querySelector<HTMLButtonElement>('.menu-btn');
+  const overlay = document.getElementById('mobile-overlay');
+  const closeBtn = document.querySelector<HTMLButtonElement>('.overlay-close');
+
+  function openMenu() {
+    overlay?.removeAttribute('hidden');
+    menuBtn?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    closeBtn?.focus();
+  }
+
+  function closeMenu() {
+    overlay?.setAttribute('hidden', '');
+    menuBtn?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    menuBtn?.focus();
+  }
+
+  menuBtn?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !overlay?.hasAttribute('hidden')) {
+      closeMenu();
+    }
+  });
+
+  // Close when a mobile nav link is clicked
+  overlay?.querySelectorAll('.overlay-nav-link').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+</script>

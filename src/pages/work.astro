@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import PageHero from '../components/PageHero.astro';
+import SelectedWork from '../components/SelectedWork.astro';
+import WorkHighlight from '../components/WorkHighlight.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import type { WorkItem } from '../components/WorkCard.astro';
+
+const workItems: WorkItem[] = [
+  {
+    title: 'Storyblok',
+    description:
+      'Built the product from the ground up as a founding employee. Scaled a headless CMS from zero to hundreds of thousands of developers and enterprise teams worldwide — shaping the product vision, developer experience, and go-to-market from day one.',
+    href: 'https://storyblok.com',
+    tags: ['Product Strategy', 'CMS', 'Developer Experience', 'Go-to-Market'],
+    year: '2017–2024',
+    role: 'Head of Product',
+    isExternal: true,
+  },
+  {
+    title: 'Clayhog',
+    description:
+      'Advising on product strategy and market positioning for a next-generation data orchestration platform, helping the team sharpen their ICP and articulate their unique value proposition.',
+    href: 'https://clayhog.com',
+    tags: ['Advisory', 'Data', 'Go-to-Market'],
+    year: '2024–',
+    role: 'Advisor',
+    isExternal: true,
+  },
+  {
+    title: 'Nonverbia',
+    description:
+      'Advising an AI-driven communication platform that bridges language and meaning beyond words — exploring new modes of human expression for the post-language-barrier era.',
+    href: '#',
+    tags: ['Advisory', 'AI', 'Communication'],
+    year: '2024–',
+    role: 'Advisor',
+  },
+];
+---
+<BaseLayout
+  title="Work — Samuel Snopko"
+  description="Selected work by Samuel Snopko — Head of Product, founding employee of Storyblok, advisor to Clayhog and Nonverbia."
+>
+  <SiteNav currentPage="work" />
+
+  <main id="main-content">
+    <div class="page-container">
+      <PageHero
+        eyebrow="Work"
+        headline="Things I've<br />Built &amp; Shaped."
+        subheadline="A decade of building products that help teams create, collaborate, and ship — from zero to scale. Here's a selection of the work I'm proud of."
+      />
+
+      <SelectedWork items={workItems} />
+    </div>
+
+    <WorkHighlight
+      eyebrow="Currently Working On"
+      title="Adoption<br />as the Work"
+      description="In the age of AI, the bottleneck isn't capability — it's adoption. I'm focused on helping organisations navigate the gap between what AI can do and what people actually use, and building the frameworks that close it."
+      tags={['Product Leadership', 'AI Adoption', 'Change Management', 'Consulting']}
+    />
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .page-container {
+    max-width: 1320px;
+    margin-inline: auto;
+    padding-inline: var(--container-pad);
+  }
+</style>

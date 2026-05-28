@@ -1,0 +1,202 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  href?: string;
+  linkLabel?: string;
+  tags?: string[];
+}
+
+const {
+  eyebrow = 'Currently Working On',
+  title,
+  description,
+  href,
+  linkLabel = 'Learn More',
+  tags = [],
+} = Astro.props;
+---
+<section class="work-highlight" aria-labelledby="work-highlight-heading">
+  <div class="work-highlight-inner">
+
+    <div class="work-highlight-content">
+      <p class="work-highlight-eyebrow reveal" style="--d: 0ms">
+        {eyebrow}
+      </p>
+
+      <h2
+        id="work-highlight-heading"
+        class="work-highlight-title reveal"
+        style="--d: 80ms"
+        set:html={title}
+      />
+
+      <p class="work-highlight-desc reveal" style="--d: 160ms">
+        {description}
+      </p>
+
+      {tags.length > 0 && (
+        <ul
+          class="work-highlight-tags reveal"
+          style="--d: 220ms"
+          role="list"
+          aria-label="Tags"
+        >
+          {tags.map(tag => <li class="work-highlight-tag">{tag}</li>)}
+        </ul>
+      )}
+
+      {href && (
+        <a
+          class="work-highlight-cta reveal"
+          style="--d: 280ms"
+          href={href}
+          aria-label={`${linkLabel}: ${title}`}
+        >
+          {linkLabel}
+          <span aria-hidden="true">→</span>
+        </a>
+      )}
+    </div>
+
+    {/* Decorative large numeral — hidden from AT */}
+    <div class="work-highlight-deco" aria-hidden="true">
+      <span class="work-highlight-deco-num">01</span>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .work-highlight {
+    background: var(--color-firebrick);
+    color: var(--color-cream-50);
+    padding-block: var(--spacing-9);
+  }
+
+  .work-highlight-inner {
+    max-width: 1320px;
+    margin-inline: auto;
+    padding-inline: var(--container-pad);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--spacing-8);
+    align-items: center;
+  }
+
+  /* Eyebrow */
+  .work-highlight-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--color-firebrick-200);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: var(--spacing-4);
+  }
+  .work-highlight-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 2px;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+
+  .work-highlight-title {
+    font-family: var(--font-display);
+    font-weight: var(--weight-black);
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 0.96;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--color-cream-50);
+    margin-bottom: var(--spacing-5);
+    text-wrap: balance;
+  }
+
+  .work-highlight-desc {
+    font-family: var(--font-serif);
+    font-size: var(--text-md);
+    line-height: var(--leading-relaxed);
+    color: var(--color-firebrick-100);
+    max-width: 52ch;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--spacing-5);
+  }
+
+  /* Tags */
+  .work-highlight-tags {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: var(--spacing-6);
+  }
+  .work-highlight-tag {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-firebrick-100);
+    border: 1px solid var(--color-firebrick-400);
+    border-radius: var(--radius-pill);
+    padding: 3px 10px;
+  }
+
+  /* CTA button */
+  .work-highlight-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-sans);
+    font-weight: var(--weight-bold);
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--color-cream-50);
+    padding: 14px 24px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition:
+      background var(--dur-base) var(--ease-out),
+      border-color var(--dur-base) var(--ease-out);
+  }
+  .work-highlight-cta:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.45);
+  }
+  .work-highlight-cta:focus-visible {
+    outline: 2px solid var(--color-cream-50);
+    outline-offset: 4px;
+  }
+
+  /* Decorative large number */
+  .work-highlight-deco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    user-select: none;
+  }
+  .work-highlight-deco-num {
+    font-family: var(--font-display);
+    font-weight: var(--weight-black);
+    font-size: clamp(80px, 18vw, 220px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: rgba(255, 255, 255, 0.07);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .work-highlight-inner { grid-template-columns: 1fr; }
+    .work-highlight-deco { display: none; }
+  }
+</style>

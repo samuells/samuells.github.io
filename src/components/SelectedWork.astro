@@ -1,0 +1,75 @@
+---
+import WorkCard from './WorkCard.astro';
+import type { WorkItem } from './WorkCard.astro';
+
+export type { WorkItem };
+
+interface Props {
+  items: WorkItem[];
+  heading?: string;
+}
+
+const { items, heading = 'Selected Work' } = Astro.props;
+
+const padded = String(items.length).padStart(2, '0');
+---
+<section class="selected-work" aria-labelledby="selected-work-heading">
+  <div class="selected-work-header reveal" style="--d: 0ms">
+    <p id="selected-work-heading" class="eyebrow selected-work-eyebrow">
+      {heading}
+    </p>
+    <span class="selected-work-count" aria-label={`${items.length} projects`}>
+      {padded}
+    </span>
+  </div>
+
+  <div role="list" aria-label="Work projects">
+    {items.map((item, i) => (
+      <div class="reveal" style={`--d: ${(i + 1) * 70}ms`} role="listitem">
+        <WorkCard {...item} />
+      </div>
+    ))}
+    {/* Closing border below last card */}
+    <div class="selected-work-cap" aria-hidden="true"></div>
+  </div>
+</section>
+
+<style>
+  .selected-work {
+    padding-block: var(--spacing-8);
+  }
+
+  .selected-work-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: var(--spacing-5);
+  }
+
+  .selected-work-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+  }
+  .selected-work-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 2px;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+
+  .selected-work-count {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-fg-subtle);
+  }
+
+  /* Terminal border under the last card */
+  .selected-work-cap {
+    border-top: 1px solid var(--color-border);
+  }
+</style>
