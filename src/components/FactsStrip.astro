@@ -1,0 +1,58 @@
+---
+const facts = [
+  { key: 'Based',     value: 'Vienna, Austria 🇦🇹' },
+  { key: 'Languages', value: 'SK · EN · DE · CZ' },
+  { key: 'Status',    value: 'Open to roles · 2026', dot: true },
+];
+---
+<dl class="facts reveal" style="--d: 360ms">
+  {facts.map(({ key, value, dot }) => (
+    <div class="fact">
+      <dt class="fact-key">{key}</dt>
+      <dd class="fact-val">
+        {dot && <span class="dot" aria-hidden="true"></span>}
+        {value}
+      </dd>
+    </div>
+  ))}
+</dl>
+
+<style>
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 12px 36px;
+    align-items: start;
+    padding: 24px 0;
+    border-top: 1px solid var(--color-ink-100);
+    border-bottom: 1px solid var(--color-ink-100);
+  }
+  .fact { display: flex; flex-direction: column; gap: 6px; }
+  .fact-key {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-ink-500);
+  }
+  .fact-val {
+    font-family: var(--font-sans);
+    font-weight: var(--weight-semibold);
+    font-size: 15px;
+    color: var(--color-ink-900);
+    letter-spacing: -0.005em;
+    margin-inline-start: 0;
+  }
+  .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--color-moss);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: 2px;
+  }
+  @media (max-width: 640px) {
+    .facts { grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+  }
+</style>

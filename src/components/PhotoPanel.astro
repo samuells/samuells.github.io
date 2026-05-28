@@ -1,0 +1,107 @@
+---
+---
+<aside class="col-right" aria-label="Samuel Snopko speaking at a conference">
+  <div class="photo" role="img" aria-label="Samuel Snopko speaking at a conference, pointing at a slide"></div>
+  <div class="photo-tint" aria-hidden="true"></div>
+
+  <div class="photo-meta reveal" style="--d: 200ms" aria-hidden="true">
+    <span>Samuel Snopko</span>
+    <b>Head of Product</b>
+  </div>
+
+  <div class="photo-tag reveal" style="--d: 280ms" aria-hidden="true">Adoption is the work · 2026</div>
+
+  <div class="photo-caption reveal" style="--d: 360ms" aria-hidden="true">
+    <span class="photo-caption-line">The full portfolio returns soon</span>
+  </div>
+</aside>
+
+<style>
+  .col-right {
+    position: relative;
+    background: var(--color-ink-900);
+    overflow: hidden;
+  }
+  .photo {
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/samuel-speaking.jpg');
+    background-size: cover;
+    background-position: 50% 40%;
+    filter: contrast(1.04) brightness(0.94) grayscale(0.15);
+  }
+  .photo-tint {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26, 16, 16, 0.15) 0%, rgba(26, 16, 16, 0.55) 100%);
+    pointer-events: none;
+  }
+  .photo-tag {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: var(--color-cream-100);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .photo-caption {
+    position: absolute;
+    left: 32px;
+    bottom: 32px;
+    right: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--color-cream-100);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .photo-caption-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(26, 16, 16, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    width: fit-content;
+  }
+  .photo-caption-line::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--color-firebrick);
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .photo-meta {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-cream-200);
+  }
+  .photo-meta b { color: var(--color-cream-50); font-weight: var(--weight-bold); }
+  @media (max-width: 1080px) {
+    .col-right { min-height: 480px; }
+  }
+  @media (max-width: 640px) {
+    .photo-tag { display: none; }
+    .photo-meta { top: 20px; left: 20px; }
+    .photo-caption { left: 20px; right: 20px; bottom: 20px; }
+  }
+</style>

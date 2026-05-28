@@ -1,0 +1,21 @@
+{
+  "name": "samuelsnopko-portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@storyblok/astro": "latest",
+    "astro": "latest",
+    "tailwindcss": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "latest",
+    "postcss": "latest"
+  }
+}

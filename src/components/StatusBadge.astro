@@ -1,0 +1,38 @@
+---
+interface Props {
+  text: string;
+}
+const { text } = Astro.props;
+---
+<span class="status" role="status" aria-live="polite">
+  <span class="status-dot" aria-hidden="true"></span>
+  {text}
+</span>
+
+<style>
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-500);
+  }
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-amber);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(232, 163, 61, 0.22);
+    animation: pulse 2.4s var(--ease-in-out, cubic-bezier(0.65, 0, 0.35, 1)) infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(232, 163, 61, 0.22); }
+    50%       { box-shadow: 0 0 0 7px rgba(232, 163, 61, 0.05); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .status-dot { animation: none; }
+  }
+</style>

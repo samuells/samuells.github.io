@@ -1,0 +1,46 @@
+---
+---
+<div class="cta-row reveal" style="--d: 440ms">
+  <a class="btn-linkedin" href="https://linkedin.com/in/samuelsnopko" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+      <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+    </svg>
+    <span>LinkedIn ↗</span>
+  </a>
+</div>
+
+<style>
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .btn-linkedin {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-sans);
+    font-weight: var(--weight-bold);
+    font-size: 13px;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    padding: 15px 18px;
+    color: var(--color-ink-900);
+    border: 1px solid var(--color-ink-300);
+    border-radius: var(--radius-md);
+    transition:
+      border-color var(--dur-base) var(--ease-out),
+      color var(--dur-base) var(--ease-out),
+      background var(--dur-base) var(--ease-out);
+  }
+  .btn-linkedin:hover {
+    border-color: var(--color-firebrick);
+    color: var(--color-firebrick);
+    background: var(--color-cream-100);
+  }
+  .btn-linkedin svg { width: 16px; height: 16px; flex: 0 0 16px; }
+  @media (max-width: 640px) {
+    .btn-linkedin { width: 100%; justify-content: center; }
+  }
+</style>

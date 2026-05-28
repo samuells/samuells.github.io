@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BrandMark from '../components/BrandMark.astro';
+import StatusBadge from '../components/StatusBadge.astro';
+import HeroSection from '../components/HeroSection.astro';
+import FactsStrip from '../components/FactsStrip.astro';
+import CtaRow from '../components/CtaRow.astro';
+import PhotoPanel from '../components/PhotoPanel.astro';
+---
+<BaseLayout
+  title="Samuel Snopko — Portfolio coming soon"
+  description="Samuel Snopko · Head of Product, founding employee of Storyblok. Advisor at Clayhog and Nonverbia. Open to new roles in 2026."
+>
+  <main class="shell">
+
+    <section class="col-left">
+
+      <div class="top-bar reveal" style="--d: 0ms">
+        <BrandMark />
+        <StatusBadge text="Site under construction" />
+      </div>
+
+      <HeroSection />
+
+      <div class="footer-stack">
+        <FactsStrip />
+        <CtaRow />
+      </div>
+
+    </section>
+
+    <PhotoPanel />
+
+  </main>
+</BaseLayout>
+
+<style>
+  /* ============================================================
+     Shell — two-column layout, stacked on mobile
+     ============================================================ */
+  .shell {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+  }
+
+  /* LEFT — content column */
+  .col-left {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 40px 56px;
+    gap: 48px;
+    border-right: 1px solid var(--color-ink-100);
+    max-width: 760px;
+    margin-left: auto;
+    width: 100%;
+  }
+
+  /* Top row — brand mark + status badge */
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  /* Bottom — facts strip + CTAs */
+  .footer-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* Responsive */
+  @media (max-width: 1080px) {
+    .shell { grid-template-columns: 1fr; }
+    .col-left {
+      max-width: 100%;
+      margin: 0;
+      border-right: none;
+      border-bottom: 1px solid var(--color-ink-100);
+      padding: 32px 32px 48px;
+    }
+  }
+  @media (max-width: 640px) {
+    .col-left { padding: 24px 24px 40px; gap: 32px; }
+  }
+</style>

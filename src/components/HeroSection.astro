@@ -1,0 +1,83 @@
+---
+---
+<div class="main">
+
+  <div class="eyebrow reveal" style="--d: 80ms">Holding page · v0.1</div>
+
+  <h1 class="h1 reveal" style="--d: 160ms">
+    New portfolio<br />
+    <span class="strike">coming</span> <span class="accent">brewing.</span>
+  </h1>
+
+  <p class="sub reveal" style="--d: 260ms">
+    I'm <span class="name">Samuel Snopko</span> — Head of Product, founding employee of Storyblok,
+    advisor to Clayhog and Nonverbia. In AI times the
+    <span class="hl">bottleneck isn't the capability, it's adoption</span>
+    — and that's the problem I want to spend the next chapter on.
+  </p>
+</div>
+
+<style>
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-firebrick);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: var(--color-firebrick);
+  }
+  .h1 {
+    font-family: var(--font-display);
+    font-weight: var(--weight-black);
+    font-size: clamp(48px, 6vw, 92px);
+    line-height: 0.96;
+    letter-spacing: -0.025em;
+    color: var(--color-ink-900);
+    text-wrap: balance;
+  }
+  .h1 .strike {
+    color: var(--color-ink-300);
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--color-firebrick);
+  }
+  .h1 .accent { color: var(--color-firebrick); }
+  .sub {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-ink-700);
+    max-width: 58ch;
+    letter-spacing: -0.005em;
+  }
+  .sub .name { font-weight: var(--weight-semibold); color: var(--color-ink-900); }
+  .sub .hl {
+    display: inline;
+    position: relative;
+    font-weight: var(--weight-semibold);
+    color: var(--color-ink-900);
+    background-image: linear-gradient(
+      transparent 62%,
+      rgba(178, 34, 34, 0.22) 62%,
+      rgba(178, 34, 34, 0.22) 92%,
+      transparent 92%
+    );
+  }
+  @media (max-width: 640px) {
+    .h1 { font-size: clamp(40px, 12vw, 60px); }
+  }
+</style>
