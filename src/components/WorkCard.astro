@@ -1,4 +1,9 @@
 ---
+export interface Stat {
+  value: string;
+  label: string;
+}
+
 export interface WorkItem {
   title: string;
   description: string;
@@ -6,6 +11,7 @@ export interface WorkItem {
   tags?: string[];
   year?: string | number;
   role?: string;
+  stats?: Stat[];
   isExternal?: boolean;
 }
 
@@ -15,9 +21,9 @@ const {
   title,
   description,
   href,
-  tags = [],
   year,
   role,
+  stats = [],
   isExternal = false,
 } = Astro.props;
 
@@ -37,16 +43,20 @@ const externalProps = isExternal
       {role && <span class="work-card-role">{role}</span>}
     </div>
 
-    <div class="work-card-body">
-      <h3 class="work-card-title">{title}</h3>
-      <p class="work-card-desc">{description}</p>
+    <h3 class="work-card-title">{title}</h3>
 
-      {tags.length > 0 && (
-        <ul class="work-card-tags" role="list" aria-label="Tags">
-          {tags.map(tag => <li class="work-card-tag">{tag}</li>)}
-        </ul>
-      )}
-    </div>
+    <p class="work-card-desc">{description}</p>
+
+    {stats.length > 0 && (
+      <ul class="work-card-stats" role="list">
+        {stats.map(({ value, label }) => (
+          <li class="work-card-stat">
+            <strong class="work-card-stat-value">{value}</strong>
+            <span class="work-card-stat-label">{label}</span>
+          </li>
+        ))}
+      </ul>
+    )}
 
     <span class="work-card-arrow" aria-hidden="true">
       {isExternal ? '↗' : '→'}
@@ -61,10 +71,10 @@ const externalProps = isExternal
 
   .work-card-link {
     display: grid;
-    grid-template-columns: 100px 1fr 28px;
-    gap: 28px;
-    align-items: start;
-    padding-block: 32px;
+    grid-template-columns: 56px 1fr 1fr auto auto;
+    gap: clamp(20px, 3.5vw, 48px);
+    align-items: center;
+    padding-block: 28px;
     padding-inline: 16px;
     margin-inline: -16px;
     color: inherit;
@@ -89,107 +99,122 @@ const externalProps = isExternal
     outline-offset: 4px;
   }
 
+  /* Meta: year + role stacked */
   .work-card-meta {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding-top: 5px;
+    gap: 4px;
+    flex-shrink: 0;
   }
 
   .work-card-year {
     font-family: var(--font-mono);
     font-size: var(--text-xs);
-    letter-spacing: var(--tracking-wide);
-    color: var(--color-fg-subtle);
+    letter-spacing: var(--tracking-caps);
     text-transform: uppercase;
-    line-height: 1.4;
+    color: var(--color-firebrick);
+    line-height: 1.2;
   }
 
   .work-card-role {
     font-family: var(--font-mono);
     font-size: var(--text-xs);
-    letter-spacing: 0.04em;
+    letter-spacing: var(--tracking-caps);
     text-transform: uppercase;
     color: var(--color-firebrick);
-    line-height: 1.4;
+    line-height: 1.2;
   }
 
+  /* Title */
   .work-card-title {
     font-family: var(--font-sans);
-    font-weight: var(--weight-bold);
-    font-size: var(--text-2xl);
-    line-height: var(--leading-snug);
-    letter-spacing: var(--tracking-tight);
-    color: var(--color-ink-900);
-    margin-bottom: 10px;
+    font-weight: var(--weight-black);
+    font-size: clamp(16px, 2vw, 24px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--color-fg);
+    margin: 0;
     transition: color var(--dur-base) var(--ease-out);
   }
 
+  /* Description */
   .work-card-desc {
     font-family: var(--font-serif);
     font-size: var(--text-base);
     line-height: var(--leading-relaxed);
     color: var(--color-fg-muted);
-    max-width: 52ch;
-    letter-spacing: -0.005em;
+    margin: 0;
+    letter-spacing: -0.01em;
   }
 
-  .work-card-tags {
+  /* Stats */
+  .work-card-stats {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 16px;
+    flex-direction: column;
+    gap: 4px;
   }
 
-  .work-card-tag {
+  .work-card-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
     font-family: var(--font-mono);
     font-size: var(--text-xs);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--color-fg-muted);
-    background: var(--color-cream-100);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-pill);
-    padding: 3px 10px;
   }
 
+  .work-card-stat-value {
+    font-weight: var(--weight-bold);
+    color: var(--color-fg);
+  }
+
+  .work-card-stat-label {
+    color: var(--color-fg-muted);
+  }
+
+  /* Arrow */
   .work-card-arrow {
     font-size: var(--text-lg);
     color: var(--color-fg-subtle);
     line-height: 1;
-    padding-top: 6px;
+    flex-shrink: 0;
     transition:
       transform var(--dur-base) var(--ease-out),
       color var(--dur-base) var(--ease-out);
   }
 
-  /* Mobile: collapse meta into header row */
+  /* Mobile */
   @media (max-width: 640px) {
     .work-card-link {
-      grid-template-columns: 1fr 24px;
-      grid-template-rows: auto auto;
+      grid-template-columns: 1fr auto;
       gap: 12px 16px;
     }
+
     .work-card-meta {
       grid-column: 1;
-      grid-row: 1;
       flex-direction: row;
-      flex-wrap: wrap;
-      gap: 8px 16px;
-      padding-top: 0;
+      gap: 8px;
     }
-    .work-card-body {
+
+    .work-card-title {
       grid-column: 1;
-      grid-row: 2;
+      font-size: clamp(18px, 5vw, 22px);
     }
+
+    .work-card-desc {
+      grid-column: 1;
+    }
+
+    .work-card-stats {
+      grid-column: 1;
+    }
+
     .work-card-arrow {
       grid-column: 2;
-      grid-row: 1;
-      padding-top: 0;
+      grid-row: 1 / -1;
+      align-self: center;
     }
-    .work-card-title { font-size: var(--text-xl); }
   }
 </style>
