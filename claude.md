@@ -27,6 +27,11 @@ This is an Astro project using content collections and island architecture for m
 - Use `getCollection()` and `getEntry()` for content queries
 - Prefer Astro components over framework components when possible
 
+## Styling
+- Tailwind CSS v4 is installed and configured
+- Use utility classes only. No custom CSS unless unavoidable.
+- Content paths: src/**/*.{ts,tsx,astro}
+
 ## Commands
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
